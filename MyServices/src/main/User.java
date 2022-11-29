@@ -1,5 +1,5 @@
 package main;
 
-public class User {
+public class User implements IUser {
 
 }

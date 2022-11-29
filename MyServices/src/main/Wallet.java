@@ -1,5 +1,5 @@
 package main;
 
-public class Wallet implements Payment{
+public class Wallet {
 
 }

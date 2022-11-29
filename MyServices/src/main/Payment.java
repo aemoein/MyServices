@@ -1,5 +1,5 @@
 package main;
 
-public interface Payment {
+public class Payment {
 
 }

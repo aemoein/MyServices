@@ -1,5 +1,9 @@
 package main;
 
-public class Cash implements Payment{
+public class Cash implements PaymentMethod{
+	public Cash() 
+	{
+		
+	}
 
 }
