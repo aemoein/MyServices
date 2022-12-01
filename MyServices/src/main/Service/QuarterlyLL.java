@@ -1,5 +1,5 @@
 package main.Service;
 
-public class QuarterlyLL {
+public class QuarterlyLL implements Landline{
 
 }

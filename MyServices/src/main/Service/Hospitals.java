@@ -1,5 +1,4 @@
 package main.Service;
 
-public class Hospitals {
-
+public class Hospitals implements Donations {
 }

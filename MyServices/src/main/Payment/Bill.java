@@ -1,5 +1,5 @@
 package main.Payment;
 
-public class Bill {
+public interface Bill {
 
 }

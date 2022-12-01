@@ -1,5 +1,5 @@
 package main.Service;
 
-public class NGOs {
+public class NGOs implements Donations {
 
 }
