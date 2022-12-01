@@ -1,5 +1,6 @@
 package main.Service;
 
-public class Orange {
+public interface Orange {
+	public void OrangeForm();
 
 }

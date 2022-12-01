@@ -1,5 +1,7 @@
 package main.Service;
 
-public class Vodafone {
+public interface Vodafone {
+	
+	public void VodafoneForm();
 
 }

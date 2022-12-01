@@ -1,5 +1,5 @@
 package main.Service;
 
-public class Etisalat {
-
-}
+public interface Etisalat {
+	public void EtisalatForm();
+	}
