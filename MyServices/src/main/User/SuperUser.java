@@ -1,4 +1,5 @@
 package main.User;
 
-public class SuperUser implements IUser {
+public class SuperUser {
+	
 }
