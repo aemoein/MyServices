@@ -1,15 +1,10 @@
 package main.Payment;
 
 public class Cash implements PaymentMethod{
-	public Cash() 
-	{
-		
-	}
 
 	@Override
-	public void pay() {
-		// TODO Auto-generated method stub
-		
+	public void pay(int amountPaid) {
+		System.out.println("$"+amountPaid+" have been paid using a credit card");
 	}
 
 }
