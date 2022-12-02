@@ -1,6 +1,6 @@
 package main.Service;
 
-public interface FactoryProvider {
+public interface IFactoryServices {
 	public We CreateWeForm();
 	public Vodafone CreateVodafoneForm();
 	public Etisalat CreateEtisalatForm();
