@@ -6,4 +6,10 @@ public class Cash implements PaymentMethod{
 		
 	}
 
+	@Override
+	public void pay() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -6,4 +6,10 @@ public class Credit_Card implements PaymentMethod{
 		
 	}
 
+	@Override
+	public void pay() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
