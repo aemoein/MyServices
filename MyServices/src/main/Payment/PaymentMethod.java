@@ -2,6 +2,6 @@ package main.Payment;
 
 public interface PaymentMethod {
 	
-	public void pay();
+	public void pay(int amountPaid);
 
 }
