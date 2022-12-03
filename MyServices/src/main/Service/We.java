@@ -1,5 +1,6 @@
 package main.Service;
 
-public class We {
+public interface We {
+	public void WeForm();
 
 }
