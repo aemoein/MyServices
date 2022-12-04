@@ -1,6 +1,6 @@
 package main.Service;
 
-public class MobileRecharge implements FactoryProvider {
+public class MobileRecharge implements IFactoryServices {
 
 	@Override
 	public We CreateWeForm() {

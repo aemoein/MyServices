@@ -1,6 +1,6 @@
 package main.Service;
 
-public class InternetPayment implements FactoryProvider{
+public class InternetPayment implements IFactoryServices{
 
 	@Override
 	public We CreateWeForm() {
