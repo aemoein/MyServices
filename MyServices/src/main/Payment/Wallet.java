@@ -1,12 +1,12 @@
 package main.Payment;
 
-public class Wallet {
+public class Wallet extends WalletControl{
 	private int userid;
-	private int amount = 0;
+	private int amount;
 	
 	public Wallet()
 	{
-		
+		amount = 0;
 	}
 
 	public int getUserid() {

@@ -1,6 +1,6 @@
 package main.Transaction;
 
-public class Refund {
+public class Refund extends RefundControl {
 	private static int RefundId;
 	Transaction refundTransaction;
 	

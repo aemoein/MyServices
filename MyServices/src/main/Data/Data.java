@@ -16,6 +16,8 @@ public class Data {
 	private ArrayList <Wallet> wallets;
 	private ArrayList <Refund> refundRequest;
 	private ArrayList <PaymentTransaction> PayTransactions;
+	private ArrayList <String> DiscountedServices;
+	private ArrayList <String> DiscountedUsers;
 	
 	private Data() 
 	{
@@ -24,8 +26,26 @@ public class Data {
 		wallets =  new ArrayList<Wallet>();
 		refundRequest = new ArrayList<Refund>();
 		PayTransactions = new ArrayList<PaymentTransaction>();
+		DiscountedServices = new ArrayList <String>();
+		DiscountedUsers = new ArrayList <String>();
 	}
 	
+	public ArrayList<String> getDiscountedUsers() {
+		return DiscountedUsers;
+	}
+
+	public void setDiscountedUsers(ArrayList<String> discountedUsers) {
+		DiscountedUsers = discountedUsers;
+	}
+
+	public ArrayList<String> getDiscountedServices() {
+		return DiscountedServices;
+	}
+
+	public void setDiscountedServices(ArrayList<String> discountedServices) {
+		DiscountedServices = discountedServices;
+	}
+
 	public ArrayList<PaymentTransaction> getPayTransactions() {
 		return PayTransactions;
 	}

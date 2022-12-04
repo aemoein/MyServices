@@ -2,13 +2,11 @@ package main.Transaction;
 
 import java.util.Scanner;
 
-public class RefundInterface {
+public class RefundInterface extends RefundControl {
 
-	RefundControl refundControl;
 	TransactionControl transactionControl;
 	
 	public RefundInterface() {
-		refundControl = new RefundControl();
 		transactionControl = new TransactionControl();
 	}
 	
@@ -17,6 +15,6 @@ public class RefundInterface {
 		transactionControl.getTransactions(0);
 		Scanner scanner = new Scanner(System.in);
 		int transId = scanner.nextInt();
-		refundControl.RequestRefund(transactionControl.getTransaction(transId));
+		RequestRefund(transactionControl.getTransaction(transId));
 	}
 }

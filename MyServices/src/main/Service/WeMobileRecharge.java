@@ -15,6 +15,4 @@ public class WeMobileRecharge implements We{
 				+ "the requird Amount you should pay is" + MobileRechargeAmount);
 		
 	}
-	
-
 }

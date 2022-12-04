@@ -2,7 +2,7 @@ package main.Service;
 import java.util.Scanner;
 public class VodafoneInternetPayment implements Vodafone {
 	
-	Scanner input =new Scanner(System.in);
+	Scanner input = new Scanner(System.in);
 	
 	@Override
 	public void VodafoneForm() {
@@ -15,6 +15,4 @@ public class VodafoneInternetPayment implements Vodafone {
 				+ "the requird Amount you should pay is" + InternetAmount);
 		
 	}
-	
-
 }

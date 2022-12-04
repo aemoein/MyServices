@@ -6,5 +6,4 @@ public class Cash implements PaymentMethod{
 	public void pay(int amountPaid) {
 		System.out.println("$"+amountPaid+" have been paid using a credit card");
 	}
-
 }

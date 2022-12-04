@@ -32,4 +32,21 @@ public class WalletControl {
 		Wallet currWallet = getwallet(id);
 		System.out.println(currWallet.getAmount());
 	}
+	
+	public void WalletPay(int amountPaid)
+	{
+		int currAmount =  getwallet(0).getAmount();
+		if (amountPaid > currAmount)
+		{
+			System.out.println("Insufficient Funds Choose another Method");
+		}
+		else 
+		{
+			currAmount = currAmount - amountPaid;
+			getwallet(0).setAmount(currAmount);
+			System.out.println("Ammount Successfully paid");
+			System.out.print("New Balance is: ");
+			getwallet(0).getAmount();
+		}
+	}
 }

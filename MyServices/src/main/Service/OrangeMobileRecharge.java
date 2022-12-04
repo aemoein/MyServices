@@ -12,8 +12,7 @@ public class OrangeMobileRecharge implements Orange{
 		System.out.println("Please enter the amount you need to recharge");
 		int MobileRechargeAmount = input.nextInt();
 		System.out.println("yor phone number is: " + PhoneNumber 
-				+ "the requird Amount you should pay is" + MobileRechargeAmount);
-		
+				+ "the requird Amount you should pay is" + MobileRechargeAmount);	
 	}
 
 }
