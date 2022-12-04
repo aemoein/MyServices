@@ -24,6 +24,17 @@ public class UserControl {
 		UserName,Email,password,
 		PhoneNumber;
 	private char gender;
+	private User currentUser;
+	
+	
+	public void setCurrentUser(User currentUser) {
+		this.currentUser = currentUser;
+	}
+	
+	public User getCurrentUser() {return this.currentUser;}
+	
+	public User getUser() {return user.getUser();}
+	
 	
 	//this function sets the user superuser or normal user.  
 	public void SetUser(iUserBuilder user) {
@@ -40,9 +51,7 @@ public class UserControl {
 		this.UserName=sForm.getUserName();
 	}
 	
-	public User getUser() {
-		return user.getUser();
-	}
+	
 	
 	public void constructUser() {
 		user.createUser();
@@ -92,24 +101,33 @@ public class UserControl {
 	
 	public boolean checkUserLoggedIN(String UserName,String Password) {
 		
-		while(!database.getUsers().isEmpty()) {
+			User tempUser;
 			Iterator<User> i = database.getUsers().iterator();
+			
 			while (i.hasNext()) {
-				
-				if((i.next().getEmail() == UserName 
-						|| i.next().getUserName() == UserName)
-						&& password == i.next().getpassword()) {	
-						
+				tempUser = i.next();
+				if((tempUser.getEmail() == UserName 
+						|| tempUser.getUserName() == UserName)
+						&& password == tempUser.getpassword()) {
+					
+						setCurrentUser(tempUser); 
 						return true;
 					
 				}
 			}
-		}
+		
 		System.out.println("The Username/Email or password is incorrect..");
 		return false;
 	}
 	
-	
+	public boolean checkAdmin(String UserName,String password) {
+		if(checkUserLoggedIN(UserName, password)) {
+			if(currentUser.getAccess()==true) {
+				return true;
+			}
+		};
+		return false;
+	}
 	
 	
 	/*******************************************************
