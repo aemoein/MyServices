@@ -3,12 +3,15 @@ package main.User;
 import java.util.Scanner;
 
 public class LoginForm {
-	private String userName,password; 
+	private String userName,password;
+	private UserControl userControl;
 	
-	public LoginForm() {};
+	public LoginForm() {
+		userControl = new UserControl();
+	};
 	
 	//setters
-	public void setUserName(String UserName){this.userName = userName;};
+	public void setUserName(String userName){this.userName = userName;};
 	public void setPassword(String password){this.password = password;};
 	
 	//getters
@@ -28,5 +31,11 @@ public class LoginForm {
 		this.setPassword(password);
 	}
 	
+	public void loginUser() {
+		FillInfo();
+		if(userControl.checkUserLoggedIN(userName, password)) {
+			//log in script here..
+		};
+	}
 	
 }

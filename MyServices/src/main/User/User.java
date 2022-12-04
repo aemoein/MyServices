@@ -4,10 +4,12 @@ public class User{
 	private String FirstName,LastName,
 	UserName,Email,password,
 	PhoneNumber;
+	private int UserID;
 	private char gender;
 	private boolean SuperUserAccess;
 	
 	public User() {
+		this.UserID = UserCounter.UserCounter;
 		this.FirstName = "";
 		this.LastName = "";
 		this.UserName = "";
@@ -15,7 +17,8 @@ public class User{
 		this.password = "";
 		this.PhoneNumber = "";
 		this.gender = '-';
-		this.SuperUserAccess = false;	
+		this.SuperUserAccess = false;
+		UserCounter.UserCounter++;
 	}
 	
 	public User(String FirstName,String LastName,
@@ -23,6 +26,7 @@ public class User{
 		String password,String PhoneNumber,
 		char gender,boolean SuperUserAcsess) 
 	{
+		UserID++;
 		this.FirstName = FirstName;
 		this.LastName = LastName;
 		this.UserName = userNameAccess;
@@ -67,37 +71,42 @@ public class User{
 	}
 	
 	
+	
 	//getters.
 	public String getFirstName () {
-	return this.FirstName;
+		return this.FirstName;
 	}
 	
 	public String getLasstName() {
-	return this.LastName;
+		return this.LastName;
 	}
 	
 	public String getUserName() {
-	return this.UserName;
+		return this.UserName;
 	}
 	
 	public String getEmail() {
-	return this.Email;
+		return this.Email;
 	}
 	
 	public String getpassword() {
-	return this.password;
+		return this.password;
 	}
 	
 	public String getPhoneNumber() {
-	return this.PhoneNumber;
+		return this.PhoneNumber;
 	}
 	
 	public boolean getAccess() {
-	return this.SuperUserAccess;
+		return this.SuperUserAccess;
 	}
 	
 	public char getGender() {
-	return this.gender;
+		return this.gender;
+	}
+	
+	public int getUserID() {
+		return this.UserID;
 	}
 	
 	
@@ -110,7 +119,8 @@ public class User{
 							+PhoneNumber+"\n"
 							+gender+"\n"
 							+Email+"\n"
-							+SuperUserAccess+"\n");
+							+SuperUserAccess+"\n"
+							+UserID+"\n");
 	}
 	
 

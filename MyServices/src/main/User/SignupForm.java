@@ -7,6 +7,13 @@ public class SignupForm {
 	UserName,Email,password,
 	PhoneNumber;
 	private char gender;
+	private UserControl UserControl;
+	private iUserBuilder user;
+	
+	public SignupForm() {
+		UserControl = new UserControl();
+		user = new NormalUser();
+	}
 	
 	//setters
 	public void setFirstName(String FirstName) {
@@ -41,31 +48,31 @@ public class SignupForm {
 	//getters.
 	public String getFirstName () {
 		return this.FirstName;
-		}
+	}
 		
-		public String getLasstName() {
+	public String getLasstName() {
 		return this.LastName;
-		}
+	}
 		
-		public String getUserName() {
+	public String getUserName() {
 		return this.UserName;
-		}
+	}
 		
-		public String getEmail() {
+	public String getEmail() {
 		return this.Email;
-		}
+	}
 		
-		public String getpassword() {
+	public String getpassword() {
 		return this.password;
-		}
+	}
 		
-		public String getPhoneNumber() {
+	public String getPhoneNumber() {
 		return this.PhoneNumber;
-		}
+	}
 		
-		public char getGender() {
+	public char getGender() {
 		return this.gender;
-		}
+	}
 	
 		
 	public void FillInfo(){
@@ -95,7 +102,7 @@ public class SignupForm {
 		while(loop) {
 			System.out.println("please enter the password: ");
 			String Password = myscanner.next();
-			this.setFirstName(FirstName);
+			this.setFirstName(Password);
 		
 			System.out.println("please re-enter the password: ");
 			String Password2 = myscanner.next();
@@ -125,8 +132,19 @@ public class SignupForm {
 		 *  gender must be f or m otherwise fuck em
 		 */
 		
+	
+		
 	}
 	
 	public SignupForm getinfo() {return this;};
+	
+	public void SignUpUser() {
+		FillInfo();
+		UserControl.SetUser(this.user);
+		UserControl.ControlInfo(getinfo());
+		UserControl.constructUser();
+		UserControl.RigersterUser(UserControl.getUser());
+	}
+	
 	
 }
