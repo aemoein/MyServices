@@ -34,7 +34,12 @@ public class LoginForm {
 	public void loginUser() {
 		FillInfo();
 		if(userControl.checkUserLoggedIN(userName, password)) {
-			//log in script here..
+			if(userControl.checkAdmin(userName, password)) {
+				//log in to admin script here.. 
+			}
+			else {
+				//log in to user script here..
+			}
 		};
 	}
 	
