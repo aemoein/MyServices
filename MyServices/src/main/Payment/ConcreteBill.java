@@ -27,6 +27,7 @@ public class ConcreteBill implements Bill{
 		Service = service;
 	}
 
+	@Override
 	public int getAmount() {
 		return amount;
 	}

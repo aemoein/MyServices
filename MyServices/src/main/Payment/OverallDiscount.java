@@ -19,4 +19,10 @@ public class OverallDiscount extends BillDecorator{
 		amount = (int) (amount - (amount * 0.2));
 		setBillAmount(amount);
 	}
+
+	@Override
+	public int getAmount() {
+		// TODO Auto-generated method stub
+		return DecoratedBill.getAmount();
+	}
 }

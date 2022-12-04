@@ -45,4 +45,10 @@ public class TransactionControl {
 		}
 	}
 	
+	public void newPaymentTransaction(int UID, String service, int amount)
+	{
+		ITransaction transaction = new PaymentTransaction(UID, service, amount);
+		SaveTranscation(transaction);
+	}
+	
 }
