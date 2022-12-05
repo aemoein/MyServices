@@ -19,10 +19,15 @@ public class MenuInterface {
 	UserControl userControl = new UserControl();
 	Scanner scanner = new Scanner(System.in);
 	int choice, choice2;
+	boolean menuflag = true;
 	
+
 	public void menuForm() 
 	{
 		System.out.println("WELECOME TO MyServices");
+		
+		
+	do {
 		System.out.println();
 		System.out.println("MAIN MENU");
 		System.out.println("HOW CAN WE HELP YOU TODAY?");
@@ -34,11 +39,13 @@ public class MenuInterface {
 		System.out.println("6- EXIT");
 		System.out.print("Enter Choice: ");
 		choice = scanner.nextInt();
+		System.out.println();
 		
 		switch (choice) {
 			case 1: 
 			{
 				paymentInterface.DisplayPaymentForm(serviceInterface.DisplayServiceForm());
+				break;
 			}
 			
 			case 2: 
@@ -54,25 +61,30 @@ public class MenuInterface {
 					case 1: 
 					{
 						refundInterface.RequestForm();
+						break;
 					}
 					
 					case 2: 
 					{
 						refundInterface.DisplayRefundRequests();
+						break;
 					}
 					default:
 						throw new IllegalArgumentException("Unexpected value: " + choice2);
 				}
+				break;
 			}
 			
 			case 3: 
 			{
 				transactionControl.getTransactions();
+				break;
 			}
 			
 			case 4: 
 			{
 				userControl.printCurrentUser();
+				break;
 			}
 			
 			case 5: 
@@ -88,21 +100,30 @@ public class MenuInterface {
 					case 1: 
 					{
 						walletInterface.displayAddForm();
+						break;
 					}
 					
 					case 2: 
 					{
 						walletInterface.displayCurrentBalance();
+						break;
 					}
 					default:
 						throw new IllegalArgumentException("Unexpected value: " + choice2);
 				}
+				break;
+			}
+			case 6: 
+			{
+				menuflag = false;
+				break;
 			}
 			
 			
 		default:
 			throw new IllegalArgumentException("Unexpected value: " + choice);
 		}
-	}
+	} while (menuflag == true);
+}
 	
 }

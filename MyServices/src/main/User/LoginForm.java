@@ -28,11 +28,11 @@ public class LoginForm {
 	
 	public void FillInfo()
 	{
-		System.out.println("please enter your username or Email: ");
+		System.out.print("please enter your username or Email: ");
 		String UserName = myscanner.next();
 		this.setUserName(UserName);
 		
-		System.out.println("please enter your password: ");
+		System.out.print("please enter your password: ");
 		String password = myscanner.next();
 		this.setPassword(password);
 	}
@@ -45,11 +45,13 @@ public class LoginForm {
 		{
 			if(userControl.checkAdmin(userName, password)) 
 			{
+				System.out.println();
 				adminMenuForm.AdminMenu();
 			}
 			
 			else 
 			{
+				System.out.println();
 				menuInterface.menuForm();
 			}
 		}

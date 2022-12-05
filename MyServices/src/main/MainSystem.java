@@ -11,9 +11,9 @@ public class MainSystem {
 		SignupForm signupForm = new SignupForm();
 		LoginForm loginForm = new LoginForm();
 		
-		//loginForm.loginUser();
-		signupForm.SignUpUser();
-		menuInterface.menuForm();
+		loginForm.loginUser();
+		//signupForm.SignUpUser();
+		//menuInterface.menuForm();
 	}
 
 }

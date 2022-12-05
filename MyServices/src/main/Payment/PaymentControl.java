@@ -58,16 +58,19 @@ public class PaymentControl extends Discount{
 			{
 				paymentMethod = new Cash();
 				paymentMethod.pay(payment.getAmount());
+				break;
 			}
 			case 2: 
 			{
 				paymentMethod = new Credit_Card();
 				paymentMethod.pay(payment.getAmount());
+				break;
 			}
 			case 3: 
 			{
 				paymentMethod = new WalletPay();
 				paymentMethod.pay(payment.getAmount());
+				break;
 			}
 			default:
 				throw new IllegalArgumentException("Unexpected value: " + choice);

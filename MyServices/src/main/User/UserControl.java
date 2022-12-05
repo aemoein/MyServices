@@ -1,7 +1,6 @@
 package main.User;
 
 import java.util.Iterator;
-
 import main.Data.Data;
 
 public class UserControl {
@@ -121,22 +120,27 @@ public class UserControl {
 	* 	 These functions will be used in the log-in form	 *
 	*********************************************************/
 	
-	public boolean checkUserLoggedIN(String UserName,String Password) {
-		
-			User tempUser;
+	public boolean checkUserLoggedIN(String UserName,String Password) 
+	{
+		User tempUser;
 			Iterator<User> i = database.getUsers().iterator();
-			
-			while (i.hasNext()) {
+			while (i.hasNext()) 
+			{
 				tempUser = i.next();
-				if((tempUser.getEmail() == UserName 
-						|| tempUser.getUserName() == UserName)
-						&& password == tempUser.getpassword()) {
-					
+				System.out.println("UID: " + tempUser.getUserID());
+				String CurrentUserName = tempUser.getUserName();
+				String CurrPassword = tempUser.getpassword();
+				String CurrEmail = tempUser.getEmail();
+				
+				if(CurrentUserName.equals(UserName) || CurrEmail.equals(UserName))
+				{
+					if (Password.equals(CurrPassword))
+					{
 						setCurrentUser(tempUser); 
 						return true;
-				}
+					}
+				}	
 			}
-		
 		System.out.println("The Username/Email or password is incorrect..");
 		return false;
 	}

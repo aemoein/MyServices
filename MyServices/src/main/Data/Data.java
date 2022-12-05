@@ -11,6 +11,7 @@ import main.User.User;
 public class Data {
 	private static Data Instance = null;
 	
+	User user = new User("Ahmed","Elsayed","aemoein@gmail.com","aemoein","1234","01008956099",'m',false);
 	private ArrayList<User> users;
 	private ArrayList <ITransaction> transactions;
 	private ArrayList <Wallet> wallets;
@@ -28,6 +29,7 @@ public class Data {
 		PayTransactions = new ArrayList<PaymentTransaction>();
 		DiscountedServices = new ArrayList <String>();
 		DiscountedUsers = new ArrayList <String>();
+		users.add(user);
 	}
 	
 	public ArrayList<String> getDiscountedUsers() {
