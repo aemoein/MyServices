@@ -4,30 +4,28 @@ public class EtisalatMobileRecharge implements Etisalat
 {
 	
 	Scanner input =new Scanner(System.in);
+	private String ServiceName = "Etisalat Mobile Recharge";
+	private int Amount;
 
 	@Override
 	public void EtisalatForm() {
-		System.out.println("Etisalat Mobile Recharge");
+		System.out.println(ServiceName);
 		System.out.println("Please enter your Phone Number");
 		int PhoneNumber = input.nextInt();
 		
 		System.out.println("Please enter the amount you need to recharge");
-		int MobileRechargeAmount = input.nextInt();
+		Amount = input.nextInt();
 		
 		System.out.println("Phone Number: " + PhoneNumber);
-		System.out.println("Amount to be Paid: " + MobileRechargeAmount);
 	}
 
 	@Override
-	public void returnServiceName() {
-		// TODO Auto-generated method stub
-		
+	public String returnServiceName() {
+		return ServiceName;
 	}
 
 	@Override
-	public void returnAmount() {
-		// TODO Auto-generated method stub
-		
+	public int returnAmount() {
+		return Amount;
 	}
-
 }

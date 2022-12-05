@@ -4,28 +4,25 @@ import java.util.Scanner;
 
 public class NGOs implements Donations {
 	Scanner scanner = new Scanner(System.in);
-
+	private String ServiceName = "NGOs Donation";
+	private int Amount;
+	
 	@Override
 	public void DonationForm() {
 		
-		System.out.println("Hi you are in NGOs donation form");
-		System.out.println("Please enter the amount you want to donate: ");
-		int amount = scanner.nextInt();
+		System.out.println(ServiceName);
+		System.out.println("Please enter the amount you would like to donate: ");
+		Amount = scanner.nextInt();
 		
-		System.out.println("you have now donated with: " + amount);
-		
+		System.out.println("Thanks For Your Donation");
+	}
+	@Override
+	public String returnServiceName() {
+		return ServiceName;
 	}
 
 	@Override
-	public void returnServiceName() {
-		// TODO Auto-generated method stub
-		
+	public int returnAmount() {
+		return Amount;
 	}
-
-	@Override
-	public void returnAmount() {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

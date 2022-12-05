@@ -1,32 +1,31 @@
 package main.Service;
 import java.util.Scanner;
-public class OrangeMobileRecharge implements Orange{
-
+public class OrangeMobileRecharge implements Orange
+{
 	Scanner input =new Scanner(System.in);
+	private String ServiceName = "Orange Mobile Recharge";
+	private int Amount;
 
 	@Override
 	public void OrangeForm() {
-		System.out.println("Hi you are in Orange Mobile Recharge");
-		System.out.println("Please enter your Phone Number");
+		System.out.println(ServiceName);
+		System.out.println("Please enter your Phone Number: ");
 		int PhoneNumber = input.nextInt();
 		
 		System.out.println("Please enter the amount you need to recharge");
-		int MobileRechargeAmount = input.nextInt();
+		Amount = input.nextInt();
 		
 		System.out.println("Phone Number: " + PhoneNumber);
-		System.out.println("Amount to be Paid: " + MobileRechargeAmount);
 	}
 
 	@Override
-	public void returnServiceName() {
-		// TODO Auto-generated method stub
-		
+	public String returnServiceName() {
+		return ServiceName;
 	}
 
 	@Override
-	public void returnAmount() {
-		// TODO Auto-generated method stub
-		
+	public int returnAmount() {
+		return Amount;
 	}
 
 }

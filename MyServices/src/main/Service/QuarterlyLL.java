@@ -2,31 +2,29 @@ package main.Service;
 
 import java.util.Scanner;
 
-public class QuarterlyLL implements Landline{
+public class QuarterlyLL implements Landline
+{
 	Scanner scanner = new Scanner(System.in);
+	private String ServiceName = "Quarterly Landline Payment";
+	private int Amount = 400;
 
 	@Override
 	public void LandLineForm() {
-		System.out.println("Hi you are in quarter monthly payment land line form");
+		System.out.println(ServiceName);
 		System.out.println("please enter the phone number: ");
 		int PhoneNumber = scanner.nextInt();
 		
-		int amount = 100*4;
-		
-		System.out.println("your phone number is: " + PhoneNumber
-				+ "the amount you paid: " + amount);
+		System.out.println("Phone Number: " + PhoneNumber);
 	}
 
 	@Override
-	public void returnServiceName() {
-		// TODO Auto-generated method stub
-		
+	public String returnServiceName() {
+		return ServiceName;
 	}
 
 	@Override
-	public void returnAmount() {
-		// TODO Auto-generated method stub
-		
+	public int returnAmount() {
+		return Amount;
 	}
 
 }
