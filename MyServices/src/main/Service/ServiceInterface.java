@@ -11,6 +11,7 @@ public class ServiceInterface extends ServiceControl
 	
 	public Payment DisplayServiceForm() 
 	{
+		getCurrentUID();
 		System.out.println("CHOOSE THE DESIRED SERVICE");
 		System.out.println("1- Mobile Recharge");
 		System.out.println("2- Internet Payment");

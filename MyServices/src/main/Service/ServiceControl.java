@@ -2,9 +2,19 @@ package main.Service;
 
 import main.Payment.Payment;
 import main.Payment.PaymentControl;
+import main.User.UserControl;
 
 public class ServiceControl extends PaymentControl
 {
+	String serviceName;
+	int UID, Amount;
+	
+	public void getCurrentUID()
+	{
+		UserControl userControl = new UserControl();
+		UID = userControl.getCurrentUser().getUserID();
+	}
+	
 	public Payment ServicePay(int UID, String ServiceName, int amount)
 	{
 		return startPayment(UID, ServiceName, amount);
@@ -13,14 +23,12 @@ public class ServiceControl extends PaymentControl
 	public Payment MobileRechargeSPMenu(int choice)
 	{
 		IFactoryServices factoryServices = new MobileRecharge();
-		String serviceName;
-		int UID = 0, Amount;
-		
 		
 		switch (choice) 
 		{
 			case 1:
 			{
+				
 				//E
 				factoryServices.CreateEtisalatForm().EtisalatForm();;
 				serviceName = factoryServices.CreateEtisalatForm().returnServiceName();
@@ -63,8 +71,6 @@ public class ServiceControl extends PaymentControl
 	public Payment InternetPaymentSPMenu(int choice)
 	{
 		IFactoryServices factoryServices = new InternetPayment();
-		String serviceName;
-		int UID = 0, Amount;
 		
 		switch (choice) 
 		{
@@ -112,8 +118,6 @@ public class ServiceControl extends PaymentControl
 	public Payment LandlineSPMenu(int choice)
 	{
 		Landline landline;
-		String serviceName;
-		int UID = 0, Amount;
 		
 		switch (choice) 
 		{
@@ -144,9 +148,6 @@ public class ServiceControl extends PaymentControl
 	public Payment DonationsSPMenu(int choice)
 	{
 		Donations donations;
-		String serviceName;
-		int UID = 0, Amount;
-		
 		switch (choice) 
 		{
 			case 1:

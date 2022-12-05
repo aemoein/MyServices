@@ -1,6 +1,6 @@
 package main.User;
 
-public class User{
+public class User {
 	private String FirstName,LastName,
 	UserName,Email,password,
 	PhoneNumber;

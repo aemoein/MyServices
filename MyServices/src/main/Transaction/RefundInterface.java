@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class RefundInterface extends RefundControl {
 
 	TransactionControl transactionControl;
+	Scanner scanner = new Scanner(System.in);
 	
 	public RefundInterface() {
 		transactionControl = new TransactionControl();
@@ -12,9 +13,13 @@ public class RefundInterface extends RefundControl {
 	
 	public void RequestForm()
 	{
-		transactionControl.getTransactions(0);
-		Scanner scanner = new Scanner(System.in);
+		transactionControl.getTransactions();
 		int transId = scanner.nextInt();
 		RequestRefund(transactionControl.getTransaction(transId));
+	}
+	
+	public void DisplayRefundRequests()
+	{
+		
 	}
 }

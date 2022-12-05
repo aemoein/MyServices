@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class EtisalatMobileRecharge implements Etisalat
 {
 	
-	Scanner input =new Scanner(System.in);
+	Scanner input = new Scanner(System.in);
 	private String ServiceName = "Etisalat Mobile Recharge";
 	private int Amount;
 

@@ -8,7 +8,7 @@ public class UserControl {
 	
 	/************************************/
 	
-	private Data database; 		
+	private Data database = Data.getInstance(); 		
 	//a DATABASE to control the sign-up. 
 	
 	/************************************/
@@ -24,14 +24,24 @@ public class UserControl {
 		UserName,Email,password,
 		PhoneNumber;
 	private char gender;
-	private User currentUser;
+	private static User currentUser;
 	
 	
 	public void setCurrentUser(User currentUser) {
-		this.currentUser = currentUser;
+		UserControl.currentUser = currentUser;
 	}
 	
-	public User getCurrentUser() {return this.currentUser;}
+	public User getCurrentUser() {return UserControl.currentUser;}
+	
+	public void printCurrentUser()
+	{
+		System.out.println(currentUser.getFirstName());
+		System.out.println(currentUser.getLasstName());
+		System.out.println(currentUser.getEmail());
+		System.out.println(currentUser.getPhoneNumber());
+		System.out.println(currentUser.getUserName());
+		System.out.println(currentUser.getGender());
+	}
 	
 	public User getUser() {return user.getUser();}
 	
@@ -69,28 +79,40 @@ public class UserControl {
 	* 	These functions will be used in the sign-up form	 *
 	*********************************************************/
 	
-	public boolean checkuserSignUP(User User) {
-		while(!database.getUsers().isEmpty()) {
-			Iterator<User> i = database.getUsers().iterator();
-			while (i.hasNext()) {
-				
-				if(i.next().getEmail() == User.getEmail()) {
-					System.out.println("Sorry this email is already taken :("+"\n");
-					return false;
-				}
-				
-				if(i.next().getUserName() == User.getUserName()) {
-					System.out.println("Sorry this username is already taken :("+"\n");
-					return false;	
+	public boolean checkuserSignUP(User User) 
+	{
+		if(UserCounter.UserCounter == 1)
+		{
+			return true;
+		}
+		
+		else 
+		{
+			while(!database.getUsers().isEmpty()) 
+			{
+				Iterator<User> i = database.getUsers().iterator();
+				while (i.hasNext()) {
+					
+					if(i.next().getEmail() == User.getEmail()) {
+						System.out.println("Sorry this email is already taken :("+"\n");
+						return false;
+					}
+					
+					if(i.next().getUserName() == User.getUserName()) {
+						System.out.println("Sorry this username is already taken :("+"\n");
+						return false;	
+					}
 				}
 			}
+			
+			return true;
 		}
-		return true;
-		
 	}
 	
-	public void RigersterUser(User User) {
-		if(checkuserSignUP(User)) {
+	public void RigersterUser(User User) 
+	{
+		if(checkuserSignUP(User)) 
+		{
 			database.getUsers().add(User);
 		}
 	}
@@ -112,7 +134,6 @@ public class UserControl {
 					
 						setCurrentUser(tempUser); 
 						return true;
-					
 				}
 			}
 		
@@ -128,6 +149,7 @@ public class UserControl {
 		};
 		return false;
 	}
+	
 	
 	
 	/*******************************************************

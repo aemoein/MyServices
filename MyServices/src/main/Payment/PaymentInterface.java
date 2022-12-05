@@ -4,14 +4,15 @@ import java.util.Scanner;
 
 import main.MenuInterface;
 
-public class PaymentInterface extends PaymentControl{
-	
+public class PaymentInterface extends PaymentControl
+{
+	Scanner scanner = new Scanner(System.in);
 	
 	public void DisplayPaymentForm(Payment payment)
 	{
 		MenuInterface menuInterface = new MenuInterface();
 		
-		int paymentProcess, billAmount = 0;
+		int paymentProcess;
 		System.out.println("PAYMENT FORM");
 		
 		getBill(payment);
@@ -23,7 +24,6 @@ public class PaymentInterface extends PaymentControl{
 		
 		System.out.println("1- PROCEED TO PAYMENT");
 		System.out.println("2- CANCEL AND RETURN TO MAIN MENU");
-		Scanner scanner = new Scanner(System.in);
 		paymentProcess = scanner.nextInt();
 		
 		if (paymentProcess == 1)

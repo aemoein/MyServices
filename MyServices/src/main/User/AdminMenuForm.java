@@ -3,10 +3,11 @@ package main.User;
 import main.Data.Data;
 
 public class AdminMenuForm {
-	private Data data;
+	private Data data = Data.getInstance();;
 	
-	public AdminMenuForm() {
-		data = Data.getInstance();
+	public void AdminMenu() 
+	{
+	
 	}
 	
 	public void AddDiscount() {

@@ -77,7 +77,7 @@ public class PaymentControl extends Discount{
 	public void createTransaction(Payment payment)
 	{
 		TransactionControl tControl = new TransactionControl();
-		tControl.newPaymentTransaction(payment.getUID(), payment.getServiceName(), payment.getAmount());
+		tControl.newPaymentTransaction(payment.getServiceName(), payment.getAmount());
 		System.out.println("Transaction Completed Successfully");
 	}
 }

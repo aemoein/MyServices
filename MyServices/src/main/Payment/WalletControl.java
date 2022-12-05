@@ -2,17 +2,19 @@ package main.Payment;
 
 import java.util.Iterator;
 import main.Data.Data;
+import main.User.UserControl;
 
 public class WalletControl {
 
 	private Data data = Data.getInstance();
+	UserControl userControl = new UserControl();
 	
-	public Wallet getwallet(int id)
+	public Wallet getwallet()
 	{
 		Iterator<Wallet> itr = data.getWallets().iterator();
 		while(itr.hasNext())
 		{
-			if(itr.next().getUserid() == id)
+			if(itr.next().getUserid() == userControl.getCurrentUser().getUserID())
 			{
 				return itr.next();
 			}
@@ -20,22 +22,22 @@ public class WalletControl {
 		return null;
 	}
 	
-	public void addfunds(int id, int amount)
+	public void addfunds(int amount)
 	{
-		Wallet currWallet = getwallet(id);
+		Wallet currWallet = getwallet();
 		int newAmount = currWallet.getAmount();
 		currWallet.setAmount(newAmount);
 	}
 	
-	public void getWalletBalance(int id)
+	public void getWalletBalance()
 	{
-		Wallet currWallet = getwallet(id);
+		Wallet currWallet = getwallet();
 		System.out.println(currWallet.getAmount());
 	}
 	
 	public void WalletPay(int amountPaid)
 	{
-		int currAmount =  getwallet(0).getAmount();
+		int currAmount =  getwallet().getAmount();
 		if (amountPaid > currAmount)
 		{
 			System.out.println("Insufficient Funds Choose another Method");
@@ -43,10 +45,10 @@ public class WalletControl {
 		else 
 		{
 			currAmount = currAmount - amountPaid;
-			getwallet(0).setAmount(currAmount);
+			getwallet().setAmount(currAmount);
 			System.out.println("Ammount Successfully paid");
 			System.out.print("New Balance is: ");
-			getwallet(0).getAmount();
+			getwallet().getAmount();
 		}
 	}
 }

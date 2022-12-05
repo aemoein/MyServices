@@ -3,9 +3,16 @@ package main.Transaction;
 import java.util.Iterator;
 
 import main.Data.Data;
+import main.User.UserControl;
 
 public class TransactionControl {
 	Data data = Data.getInstance();
+	UserControl userControl = new UserControl();
+	
+	public int getCurrentUID()
+	{
+		return userControl.getCurrentUser().getUserID();
+	}
 	
 	public void printTransactions(ITransaction transaction) 
 	{
@@ -33,21 +40,21 @@ public class TransactionControl {
 	}
 	
 	
-	public void getTransactions(int id)
+	public void getTransactions()
 	{
 		Iterator<PaymentTransaction> itr = data.getPayTransactions().iterator();
 		while(itr.hasNext())
 		{
-			if(itr.next().userId == id)
+			if(itr.next().userId == getCurrentUID())
 			{
 				itr.next().printTransaction(); 
 			}
 		}
 	}
 	
-	public void newPaymentTransaction(int UID, String service, int amount)
+	public void newPaymentTransaction(String service, int amount)
 	{
-		ITransaction transaction = new PaymentTransaction(UID, service, amount);
+		ITransaction transaction = new PaymentTransaction(getCurrentUID(), service, amount);
 		SaveTranscation(transaction);
 	}
 	

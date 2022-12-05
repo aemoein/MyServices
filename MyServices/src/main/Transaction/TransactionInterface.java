@@ -7,8 +7,7 @@ public class TransactionInterface extends TransactionControl{
 	
 	public void getUserTransactions()
 	{
-		int id = 0;
-		getTransactions(id);
+		getTransactions();
 		System.out.println();
 	}
 	
