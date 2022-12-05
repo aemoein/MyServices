@@ -10,8 +10,7 @@ public class VodafoneInternetPayment implements Vodafone {
 	public void VodafoneForm() {
 
 		System.out.println(ServiceName);
-		System.out.println("Please enter your Phone Number: ");
-		
+		System.out.print("Phone Number: ");
 		int PhoneNumber = input.nextInt();
 		
 		System.out.println("Phone Number : " + PhoneNumber );

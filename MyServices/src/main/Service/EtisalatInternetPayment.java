@@ -5,14 +5,13 @@ public class EtisalatInternetPayment implements Etisalat
 	Scanner input = new Scanner(System.in);
 	
 	private String ServiceName = "Etisalat Internet Payment";
-	private int Amount = 300;
+	private static int Amount = 300;
 
 	@Override
 	public void EtisalatForm() 
 	{
 		System.out.println(ServiceName);
-		System.out.println("Please enter your Phone Number: ");
-		
+		System.out.print("Phone Number: ");
 		int PhoneNumber = input.nextInt();
 		
 		System.out.println("Phone Number: " + PhoneNumber );

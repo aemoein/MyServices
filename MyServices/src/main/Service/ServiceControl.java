@@ -30,9 +30,11 @@ public class ServiceControl extends PaymentControl
 			{
 				
 				//E
-				factoryServices.CreateEtisalatForm().EtisalatForm();;
+				factoryServices.CreateEtisalatForm().EtisalatForm();
 				serviceName = factoryServices.CreateEtisalatForm().returnServiceName();
+				System.out.println("ServiceNameCheck: " + serviceName);
 				Amount = factoryServices.CreateEtisalatForm().returnAmount();
+				System.out.println("AmountCheck: " + Amount);
 				return ServicePay(UID, serviceName, Amount);
 			}
 			
@@ -40,8 +42,8 @@ public class ServiceControl extends PaymentControl
 			{
 				//O
 				factoryServices.CreateOrangeForm().OrangeForm();
-				serviceName = factoryServices.CreateEtisalatForm().returnServiceName();
-				Amount = factoryServices.CreateEtisalatForm().returnAmount();
+				serviceName = factoryServices.CreateOrangeForm().returnServiceName();
+				Amount = factoryServices.CreateOrangeForm().returnAmount();
 				return ServicePay(UID, serviceName, Amount);
 			}
 			
@@ -49,8 +51,8 @@ public class ServiceControl extends PaymentControl
 			{
 				//V
 				factoryServices.CreateVodafoneForm().VodafoneForm();
-				serviceName = factoryServices.CreateEtisalatForm().returnServiceName();
-				Amount = factoryServices.CreateEtisalatForm().returnAmount();
+				serviceName = factoryServices.CreateVodafoneForm().returnServiceName();
+				Amount = factoryServices.CreateVodafoneForm().returnAmount();
 				return ServicePay(UID, serviceName, Amount);
 			}
 			
@@ -58,8 +60,8 @@ public class ServiceControl extends PaymentControl
 			{
 				//W
 				factoryServices.CreateWeForm().WeForm();
-				serviceName = factoryServices.CreateEtisalatForm().returnServiceName();
-				Amount = factoryServices.CreateEtisalatForm().returnAmount();
+				serviceName = factoryServices.CreateWeForm().returnServiceName();
+				Amount = factoryServices.CreateWeForm().returnAmount();
 				return ServicePay(UID, serviceName, Amount);
 			}
 			
@@ -87,8 +89,8 @@ public class ServiceControl extends PaymentControl
 			{
 				//O
 				factoryServices.CreateOrangeForm().OrangeForm();
-				serviceName = factoryServices.CreateEtisalatForm().returnServiceName();
-				Amount = factoryServices.CreateEtisalatForm().returnAmount();
+				serviceName = factoryServices.CreateOrangeForm().returnServiceName();
+				Amount = factoryServices.CreateOrangeForm().returnAmount();
 				return ServicePay(UID, serviceName, Amount);
 			}
 			
@@ -96,8 +98,8 @@ public class ServiceControl extends PaymentControl
 			{
 				//V
 				factoryServices.CreateVodafoneForm().VodafoneForm();
-				serviceName = factoryServices.CreateEtisalatForm().returnServiceName();
-				Amount = factoryServices.CreateEtisalatForm().returnAmount();
+				serviceName = factoryServices.CreateVodafoneForm().returnServiceName();
+				Amount = factoryServices.CreateVodafoneForm().returnAmount();
 				return ServicePay(UID, serviceName, Amount);
 			}
 			
@@ -105,8 +107,8 @@ public class ServiceControl extends PaymentControl
 			{
 				//W
 				factoryServices.CreateWeForm().WeForm();
-				serviceName = factoryServices.CreateEtisalatForm().returnServiceName();
-				Amount = factoryServices.CreateEtisalatForm().returnAmount();
+				serviceName = factoryServices.CreateWeForm().returnServiceName();
+				Amount = factoryServices.CreateWeForm().returnAmount();
 				return ServicePay(UID, serviceName, Amount);
 			}
 			

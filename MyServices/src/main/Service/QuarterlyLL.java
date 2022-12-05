@@ -11,7 +11,7 @@ public class QuarterlyLL implements Landline
 	@Override
 	public void LandLineForm() {
 		System.out.println(ServiceName);
-		System.out.println("please enter the phone number: ");
+		System.out.print("Phone Number: ");
 		int PhoneNumber = scanner.nextInt();
 		
 		System.out.println("Phone Number: " + PhoneNumber);

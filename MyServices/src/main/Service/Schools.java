@@ -10,7 +10,7 @@ public class Schools implements Donations{
 	public void DonationForm() {
 		
 		System.out.println(ServiceName);
-		System.out.println("Please enter the amount you would like to donate: ");
+		System.out.print("Please enter the amount you would like to donate: ");
 		Amount = scanner.nextInt();
 		
 		System.out.println("Thanks For Your Donation");

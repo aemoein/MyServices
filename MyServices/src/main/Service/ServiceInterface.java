@@ -19,6 +19,7 @@ public class ServiceInterface extends ServiceControl
 		System.out.println("4- Donations");
 		System.out.print("CHOICE (1-4): ");
 		choice = scanner.nextInt();
+		System.out.println();
 		
 		switch (choice) {
 			case 1: 
@@ -31,6 +32,7 @@ public class ServiceInterface extends ServiceControl
 				System.out.println("4- We");
 				System.out.print("CHOICE (1-4): ");
 				choiceSP = scanner.nextInt();
+				System.out.println();
 				
 				return MobileRechargeSPMenu(choiceSP);
 			}
@@ -45,6 +47,7 @@ public class ServiceInterface extends ServiceControl
 				System.out.println("4- We");
 				System.out.print("CHOICE (1-4): ");
 				choiceSP = scanner.nextInt();
+				System.out.println();
 				
 				return InternetPaymentSPMenu(choiceSP);
 			}
@@ -57,6 +60,7 @@ public class ServiceInterface extends ServiceControl
 				System.out.println("2- Quarterly");
 				System.out.print("CHOICE (1-2): ");
 				choiceSP = scanner.nextInt();
+				System.out.println();
 				
 				return LandlineSPMenu(choiceSP);
 			}
@@ -71,6 +75,7 @@ public class ServiceInterface extends ServiceControl
 				System.out.println("3- NGOs");
 				System.out.print("CHOICE (1-3): ");
 				choiceSP = scanner.nextInt();
+				System.out.println();
 				
 				return DonationsSPMenu(choiceSP);
 			}

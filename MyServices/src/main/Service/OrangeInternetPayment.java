@@ -8,7 +8,7 @@ public class OrangeInternetPayment implements Orange{
 	@Override
 	public void OrangeForm() {
 		System.out.println(ServiceName);
-		System.out.println("Please Enter Your Phone Number: ");
+		System.out.print("Phone Number: ");
 		int PhoneNumber = input.nextInt();
 		
 		System.out.println("Phone Number: " + PhoneNumber);
