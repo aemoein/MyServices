@@ -26,14 +26,15 @@ public class TransactionControl {
 	}
 	
 	
-	public PaymentTransaction getTransaction(int id)
+	public ITransaction getTransaction(int id)
 	{
-		Iterator<PaymentTransaction> itr = data.getPayTransactions().iterator();
+		Iterator<ITransaction> itr = data.getPayTransactions().iterator();
+		ITransaction transaction;
 		while(itr.hasNext())
-		{
-			if(itr.next().TransactionID == id)
+		{	transaction = itr.next();
+			if(transaction.getTID() == id)
 			{
-				return itr.next();
+				return transaction;
 			}
 		}
 		return null;
@@ -42,12 +43,22 @@ public class TransactionControl {
 	
 	public void getTransactions()
 	{
-		Iterator<PaymentTransaction> itr = data.getPayTransactions().iterator();
-		while(itr.hasNext())
+		if ( data.getTransactions().isEmpty())
 		{
-			if(itr.next().userId == getCurrentUID())
-			{
-				itr.next().printTransaction(); 
+			System.out.println("NO TRANSACTIONS AVALIABLE");
+		}
+		
+		else
+		{
+			System.out.println("userId"+"\t"+"TransactionID"+"\t"+"Service"+"\t\t\t\t"+"$"+"amount"+"\t\t"+"type");
+			Iterator<ITransaction> itr = data.getTransactions().iterator();
+			ITransaction transaction;
+			while(itr.hasNext())
+			{   transaction = itr.next();
+				if(transaction.getUID() == getCurrentUID())
+				{
+					transaction.printTransaction();
+				}
 			}
 		}
 	}
@@ -56,6 +67,44 @@ public class TransactionControl {
 	{
 		ITransaction transaction = new PaymentTransaction(getCurrentUID(), service, amount);
 		SaveTranscation(transaction);
+		data.getPayTransactions().add(transaction);
 	}
+	
+	public void newWalletTransaction(int amount)
+	{
+		String service = "Wallet";
+		ITransaction transaction = new WalletTransaction(getCurrentUID(), service, amount);
+		SaveTranscation(transaction);
+	}
+	
+	public void newRefundTransaction(int amount)
+	{
+		String service = "Refund";
+		ITransaction transaction = new RefundTransaction(getCurrentUID(), service, amount);
+		SaveTranscation(transaction);
+	}
+	
+	public void getPayTransactions()
+	{
+		if ( data.getPayTransactions().isEmpty())
+		{
+			System.out.println("NO TRANSACTIONS AVALIABLE");
+		}
+		
+		else
+		{
+			System.out.println("userId"+"\t"+"TransactionID"+"\t"+"Service"+"\t\t\t"+"$"+"amount"+"\t"+"type");
+			Iterator<ITransaction> itr = data.getPayTransactions().iterator();
+			ITransaction transaction;
+			while(itr.hasNext())
+			{   transaction = itr.next();
+				if(transaction.getUID() == getCurrentUID())
+				{
+					transaction.printTransaction();
+				}
+			}
+		}
+	}
+	
 	
 }

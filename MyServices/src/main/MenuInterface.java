@@ -7,6 +7,7 @@ import main.Payment.WalletInterface;
 import main.Service.ServiceInterface;
 import main.Transaction.RefundInterface;
 import main.Transaction.TransactionControl;
+import main.Transaction.TransactionInterface;
 import main.User.UserControl;
 
 public class MenuInterface {
@@ -15,6 +16,7 @@ public class MenuInterface {
 	ServiceInterface serviceInterface = new ServiceInterface();
 	RefundInterface refundInterface = new RefundInterface();
 	TransactionControl transactionControl = new TransactionControl();
+	TransactionInterface transactionInterface = new TransactionInterface();
 	WalletInterface walletInterface = new WalletInterface();
 	UserControl userControl = new UserControl();
 	Scanner scanner = new Scanner(System.in);
@@ -80,8 +82,8 @@ public class MenuInterface {
 			
 			case 3: 
 			{
-				transactionControl.getTransactions();
-				System.out.println();
+				transactionInterface.getUserTransactions();
+				//transactionControl.getTransactions();
 				break;
 			}
 			

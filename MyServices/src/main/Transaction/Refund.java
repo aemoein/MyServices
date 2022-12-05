@@ -8,7 +8,6 @@ public class Refund extends RefundControl
 	private static int RefundId;
 	private int UID;
 	private String RefundStatus;
-	
 	ITransaction refundTransaction;
 	
 	public Refund(ITransaction refundTransaction) 

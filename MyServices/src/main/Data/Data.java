@@ -16,7 +16,7 @@ public class Data {
 	private ArrayList <ITransaction> transactions;
 	private ArrayList <Wallet> wallets;
 	private ArrayList <Refund> refundRequest;
-	private ArrayList <PaymentTransaction> PayTransactions;
+	private ArrayList <ITransaction> PayTransactions;
 	private ArrayList <String> DiscountedServices;
 	private ArrayList <String> DiscountedUsers;
 	Wallet wallet = new Wallet(user.getUserID(), 0);
@@ -27,7 +27,7 @@ public class Data {
 		transactions = new ArrayList<ITransaction>();
 		wallets =  new ArrayList<Wallet>();
 		refundRequest = new ArrayList<Refund>();
-		PayTransactions = new ArrayList<PaymentTransaction>();
+		PayTransactions = new ArrayList<ITransaction>();
 		DiscountedServices = new ArrayList <String>();
 		DiscountedUsers = new ArrayList <String>();
 		users.add(user);
@@ -50,11 +50,11 @@ public class Data {
 		DiscountedServices = discountedServices;
 	}
 
-	public ArrayList<PaymentTransaction> getPayTransactions() {
+	public ArrayList<ITransaction> getPayTransactions() {
 		return PayTransactions;
 	}
 
-	public void setPayTransactions(ArrayList<PaymentTransaction> payTransactions) {
+	public void setPayTransactions(ArrayList<ITransaction> payTransactions) {
 		PayTransactions = payTransactions;
 	}
 

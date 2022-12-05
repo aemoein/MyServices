@@ -14,6 +14,16 @@ public class PaymentTransaction extends Transaction implements ITransaction
 	@Override
 	public void printTransaction() 
 	{
-		System.out.println(userId+"/t"+TransactionID+"/t"+Service+"/t"+amount+"/t"+type);
+		System.out.println(userId+"\t"+TransactionID+"\t\t"+Service+"\t"+"$"+amount+"\t"+type);
+	}
+
+	@Override
+	public int getUID() {
+		return userId;
+	}
+
+	@Override
+	public int getTID() {
+		return TransactionID;
 	}
 }

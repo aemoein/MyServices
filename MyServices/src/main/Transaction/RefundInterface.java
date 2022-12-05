@@ -13,13 +13,16 @@ public class RefundInterface extends RefundControl {
 	
 	public void RequestForm()
 	{
-		transactionControl.getTransactions();
+		transactionControl.getPayTransactions();
+		System.out.print("Enter the TransactionID: ");
 		int transId = scanner.nextInt();
+		
 		RequestRefund(transactionControl.getTransaction(transId));
+		System.out.println("Refund Request Submitted");
 	}
 	
 	public void DisplayRefundRequests()
 	{
-		
+		getRefundRequests();
 	}
 }

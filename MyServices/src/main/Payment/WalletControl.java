@@ -2,6 +2,7 @@ package main.Payment;
 
 import java.util.Iterator;
 import main.Data.Data;
+import main.Transaction.TransactionControl;
 import main.User.User;
 import main.User.UserControl;
 
@@ -9,6 +10,7 @@ public class WalletControl {
 
 	private Data data = Data.getInstance();
 	UserControl userControl = new UserControl();
+	TransactionControl transactionControl = new TransactionControl();
 	
 	public Wallet getwallet()
 	{
@@ -29,6 +31,7 @@ public class WalletControl {
 		Wallet currWallet = getwallet();
 		int newAmount = currWallet.getAmount() + amount;
 		currWallet.setAmount(newAmount);
+		transactionControl.newWalletTransaction(amount);
 		System.out.println("New Balance: $"+getwallet().getAmount());
 	}
 	

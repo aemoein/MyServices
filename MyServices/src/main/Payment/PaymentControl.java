@@ -58,6 +58,7 @@ public class PaymentControl extends Discount{
 			{
 				paymentMethod = new Cash();
 				paymentMethod.pay(payment.getAmount());
+				
 				break;
 			}
 			case 2: 

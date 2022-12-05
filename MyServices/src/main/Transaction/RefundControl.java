@@ -17,11 +17,13 @@ public class RefundControl extends TransactionControl
 	public void getRefundRequests()
 	{
 		Iterator<Refund> itr = data.getRefundRequest().iterator();
+		Refund refund;
 		while(itr.hasNext())
 		{
-			if(itr.next().getUID() == getCurrentUID())
+			refund = itr.next();
+			if(refund.getUID() == getCurrentUID())
 			{
-				itr.next().printRefund();
+				refund.printRefund();
 			}
 		}
 	}
