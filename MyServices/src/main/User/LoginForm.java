@@ -43,13 +43,13 @@ public class LoginForm {
 		
 		if(userControl.checkUserLoggedIN(userName, password)) 
 		{
-			if(userControl.checkAdmin(userName, password)) 
+			if(userControl.getCurrentUser().getAccess()) 
 			{
 				System.out.println();
 				adminMenuForm.AdminMenu();
 			}
 			
-			else 
+			else if (userControl.getCurrentUser().getAccess() == false)
 			{
 				System.out.println();
 				menuInterface.menuForm();

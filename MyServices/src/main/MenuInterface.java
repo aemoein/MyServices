@@ -19,6 +19,7 @@ public class MenuInterface {
 	TransactionInterface transactionInterface = new TransactionInterface();
 	WalletInterface walletInterface = new WalletInterface();
 	UserControl userControl = new UserControl();
+	SystemEntry systemEntry = new SystemEntry();
 	Scanner scanner = new Scanner(System.in);
 	int choice, choice2;
 	boolean menuflag = true;
@@ -125,7 +126,7 @@ public class MenuInterface {
 			case 6: 
 			{
 				menuflag = false;
-				System.exit(0);
+				systemEntry.SystemStart();
 				break;
 			}
 			

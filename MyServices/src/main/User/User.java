@@ -37,7 +37,7 @@ public class User {
 		this.password = password;
 		this.PhoneNumber = PhoneNumber;
 		this.gender = gender;
-		this.SuperUserAccess = false;
+		this.SuperUserAccess = SuperUserAcsess;
 	}
 	
 	//setters.
@@ -113,7 +113,6 @@ public class User {
 	}
 	
 	
-	//REMOVE THIS LATER
 	public void display() {
 		System.out.println(FirstName+"\n"
 							+LastName+"\n"

@@ -2,6 +2,7 @@ package main.User;
 
 import java.util.Iterator;
 import main.Data.Data;
+import main.Payment.Wallet;
 
 public class UserControl {
 	
@@ -97,8 +98,6 @@ public class UserControl {
 		
 		else 
 		{
-			while(!database.getUsers().isEmpty()) 
-			{
 				Iterator<User> i = database.getUsers().iterator();
 				while (i.hasNext()) {
 					
@@ -114,7 +113,12 @@ public class UserControl {
 				}
 			}
 			return true;
-		}
+	}
+	
+	public void createwallet(int UID)
+	{
+		Wallet wallet = new Wallet(UID, 0);
+		database.getWallets().add(wallet);
 	}
 	
 	public void RigersterUser(User User) 
@@ -122,6 +126,7 @@ public class UserControl {
 		if(checkuserSignUP(User)) 
 		{
 			database.getUsers().add(User);
+			createwallet(User.getUserID());
 		}
 	}
 	
@@ -153,12 +158,12 @@ public class UserControl {
 		return false;
 	}
 	
-	public boolean checkAdmin(String UserName,String password) {
-		if(checkUserLoggedIN(UserName, password)) {
-			if(currentUser.getAccess()==true) {
+	public boolean checkAdmin(String UserName,String password) 
+	{
+			if(currentUser.getAccess() == true) 
+			{
 				return true;
 			}
-		};
 		return false;
 	}
 	

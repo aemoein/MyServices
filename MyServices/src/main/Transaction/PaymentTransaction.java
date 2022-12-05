@@ -26,4 +26,10 @@ public class PaymentTransaction extends Transaction implements ITransaction
 	public int getTID() {
 		return TransactionID;
 	}
+
+	@Override
+	public int getAmount() {
+		// TODO Auto-generated method stub
+		return amount;
+	}
 }

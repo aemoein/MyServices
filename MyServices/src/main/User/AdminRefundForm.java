@@ -1,5 +1,6 @@
 package main.User;
 
-public class AdminRefundForm {
+public class AdminRefundForm 
+{
 
 }

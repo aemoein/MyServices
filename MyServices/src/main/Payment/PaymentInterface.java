@@ -3,10 +3,12 @@ package main.Payment;
 import java.util.Scanner;
 
 import main.MenuInterface;
+import main.SystemEntry;
 
 public class PaymentInterface extends PaymentControl
 {
 	Scanner scanner = new Scanner(System.in);
+	SystemEntry systemEntry = new SystemEntry();
 	
 	public void DisplayPaymentForm(Payment payment)
 	{
@@ -61,7 +63,7 @@ public class PaymentInterface extends PaymentControl
 			
 			if (choiceB == 2)
 			{
-				System.exit(0);
+				systemEntry.SystemStart();
 			}
 		}
 		

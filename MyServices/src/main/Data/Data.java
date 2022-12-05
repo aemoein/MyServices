@@ -12,6 +12,7 @@ public class Data {
 	private static Data Instance = null;
 	
 	User user = new User("Ahmed","Elsayed","aemoein@gmail.com","aemoein","1234","01008956099",'m',false);
+	User admin = new User("Ahmed","Elsayed","admin@myservice","admin","12345","01008956099",'m',true);
 	private ArrayList<User> users;
 	private ArrayList <ITransaction> transactions;
 	private ArrayList <Wallet> wallets;
@@ -31,6 +32,7 @@ public class Data {
 		DiscountedServices = new ArrayList <String>();
 		DiscountedUsers = new ArrayList <String>();
 		users.add(user);
+		users.add(admin);
 		wallets.add(wallet);
 	}
 	

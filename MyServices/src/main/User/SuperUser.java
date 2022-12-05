@@ -2,7 +2,7 @@ package main.User;
 
 
 public class SuperUser implements iUserBuilder {
-private User user;
+	private User user;
 	
 	public void createUser() {
 		this.user = new User();
@@ -51,7 +51,8 @@ private User user;
 	}
 
 	@Override
-	public void setAccess() {
+	public void setAccess() 
+	{
 		user.setAccess(true);
 	}
 

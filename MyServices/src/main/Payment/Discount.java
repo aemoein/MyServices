@@ -10,10 +10,12 @@ public class Discount {
 	
 	public boolean serviceDiscount(String ServiceName)
 	{
+		String ServiceN;
 		Iterator<String> itr = data.getDiscountedServices().iterator();
 		while(itr.hasNext())
 		{
-			if(itr.next() == ServiceName)
+			ServiceN = itr.next();
+			if(ServiceN == ServiceName)
 			{
 				return true;
 			}
@@ -26,7 +28,8 @@ public class Discount {
 		Iterator<String> itr = data.getDiscountedUsers().iterator();
 		while(itr.hasNext())
 		{
-			if(id == Integer.parseInt(itr.next()))
+			int UID = Integer.parseInt(itr.next());
+			if(id == UID)
 			{
 				return true;
 			}

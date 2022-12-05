@@ -29,6 +29,7 @@ public class PaymentControl extends Discount{
 			{
 				billSerDisBill.getbill();
 				System.out.println("Service Discount Applied");
+				
 				payment.setAmount(billSerDisBill.getAmount());
 			}
 		}

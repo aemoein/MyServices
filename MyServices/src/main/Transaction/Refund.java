@@ -8,8 +8,25 @@ public class Refund extends RefundControl
 	private static int RefundId;
 	private int UID;
 	private String RefundStatus;
-	ITransaction refundTransaction;
+	private boolean flag;
+	public boolean isFlag() {
+		return flag;
+	}
+
+	public void setFlag(boolean flag) {
+		this.flag = flag;
+	}
+
+	private ITransaction refundTransaction;
 	
+	public ITransaction getRefundTransaction() {
+		return refundTransaction;
+	}
+
+	public void setRefundTransaction(ITransaction refundTransaction) {
+		this.refundTransaction = refundTransaction;
+	}
+
 	public Refund(ITransaction refundTransaction) 
 	{
 		RefundStatus = "Pending Review";

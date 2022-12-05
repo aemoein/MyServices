@@ -27,4 +27,9 @@ public class RefundControl extends TransactionControl
 			}
 		}
 	}
+	
+	public void processRefundRequest()
+	{
+		
+	}
 }
