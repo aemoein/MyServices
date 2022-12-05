@@ -1,20 +1,24 @@
 package main.Payment;
 
-import main.Transaction.ITransaction;
-import main.Transaction.PaymentTransaction;
 import main.Transaction.TransactionControl;
 
 public class PaymentControl extends Discount{
-	
-	public int getBill(String service, int UID, int amount)
+
+	public Payment startPayment(int UID, String service, int amount)
 	{
-		Bill bill = new ConcreteBill(service,amount);
+		Payment payment = new Payment(UID, service, amount);
+		return payment;
+	}
+	
+	public int getBill(Payment payment)
+	{
+		Bill bill = new ConcreteBill(payment.getServiceName() ,payment.getAmount());
 		
-		if (serviceDiscount(service))
+		if (serviceDiscount(payment.getServiceName()))
 		{
 			Bill billSerDisBill = new ServiceDiscount(bill);
 			
-			if (overallDiscount(UID))
+			if (overallDiscount(payment.getUID()))
 			{
 				Bill billOverallDisBill = new ServiceDiscount(billSerDisBill);
 				billOverallDisBill.getbill();
@@ -29,7 +33,7 @@ public class PaymentControl extends Discount{
 			}
 		}
 		
-		else if (overallDiscount(UID))
+		else if (overallDiscount(payment.getUID()))
 		{
 			Bill billOverallDisBill = new ServiceDiscount(bill);
 			billOverallDisBill.getbill();
@@ -75,5 +79,10 @@ public class PaymentControl extends Discount{
 		TransactionControl tControl = new TransactionControl();
 		tControl.newPaymentTransaction(UID, service, amount);
 		System.out.println("Transaction Completed Successfully");
+	}
+	
+	public void getService()
+	{
+		
 	}
 }

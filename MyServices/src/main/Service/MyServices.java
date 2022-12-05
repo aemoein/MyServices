@@ -1,6 +1,6 @@
 package main.Service;
 
-public class MyServices {
+public class MyServices extends ServiceControl{
 	
 	private IFactoryServices factoryServices;
 	

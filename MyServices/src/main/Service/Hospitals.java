@@ -9,8 +9,19 @@ public class Hospitals implements Donations {
 	public void DonationForm() {
 		
 		System.out.println("Hi you are in NGOs donation form");
-		System.out.println("Please enetr the amount you want to donate: ");
+		System.out.println("Please enter the amount you want to donate: ");
 		int amount = scanner.nextInt();
-		System.out.println("you have now donated with: " + amount);
+		
+		System.out.println("you have now donated: " + amount);
+	}
+	@Override
+	public void returnServiceName() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void returnAmount() {
+		// TODO Auto-generated method stub
+		
 	}
 }

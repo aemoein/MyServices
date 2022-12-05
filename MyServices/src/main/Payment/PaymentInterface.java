@@ -11,9 +11,9 @@ public class PaymentInterface extends PaymentControl{
 	{
 		MenuInterface menuInterface = new MenuInterface();
 		String Service = " ";
-		int UID = 0, amount = 0, paymentProcess, billAmount;
+		int UID = 0, amount = 0, paymentProcess, billAmount = 0;
 		System.out.println("PAYMENT FORM");
-		billAmount = getBill(Service, UID, amount);
+		billAmount = getBill(startPayment(UID, Service, billAmount));
 		
 		System.out.println("1- PROCEED TO PAYMENT");
 		System.out.println("2- CANCEL AND RETURN TO MAIN MENU");
