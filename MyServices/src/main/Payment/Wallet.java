@@ -1,20 +1,22 @@
 package main.Payment;
 
-public class Wallet extends WalletControl{
-	private int userid;
-	private int amount;
+public class Wallet {
 	
-	public Wallet()
+	private int UID;
+	private int amount = 0;
+	
+	public Wallet(int UID, int amount)
 	{
-		amount = 0;
+		this.UID = UID;
+		this.amount = amount;
 	}
 
-	public int getUserid() {
-		return userid;
+	public int getUID() {
+		return UID;
 	}
 
-	public void setUserid(int userid) {
-		this.userid = userid;
+	public void setUID(int uID) {
+		UID = uID;
 	}
 
 	public int getAmount() {

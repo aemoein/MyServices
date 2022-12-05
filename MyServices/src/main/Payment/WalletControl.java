@@ -2,6 +2,7 @@ package main.Payment;
 
 import java.util.Iterator;
 import main.Data.Data;
+import main.User.User;
 import main.User.UserControl;
 
 public class WalletControl {
@@ -14,9 +15,10 @@ public class WalletControl {
 		Iterator<Wallet> itr = data.getWallets().iterator();
 		while(itr.hasNext())
 		{
-			if(itr.next().getUserid() == userControl.getCurrentUser().getUserID())
+			Wallet tempWallet = itr.next();
+			if(tempWallet.getUID() == userControl.getCurrentUser().getUserID())
 			{
-				return itr.next();
+				return tempWallet;
 			}
 		}
 		return null;
@@ -25,8 +27,9 @@ public class WalletControl {
 	public void addfunds(int amount)
 	{
 		Wallet currWallet = getwallet();
-		int newAmount = currWallet.getAmount();
+		int newAmount = currWallet.getAmount() + amount;
 		currWallet.setAmount(newAmount);
+		System.out.println("New Balance: $"+getwallet().getAmount());
 	}
 	
 	public void getWalletBalance()
@@ -48,7 +51,7 @@ public class WalletControl {
 			getwallet().setAmount(currAmount);
 			System.out.println("Ammount Successfully paid");
 			System.out.print("New Balance is: ");
-			getwallet().getAmount();
+			System.out.println(getwallet().getAmount());
 		}
 	}
 }

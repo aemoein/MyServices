@@ -24,6 +24,7 @@ public class ServiceInterface extends ServiceControl
 		switch (choice) {
 			case 1: 
 			{
+				System.out.println();
 				System.out.println("MOBILE RECHARGE MENU");
 				System.out.println("CHOOSE THE DESIRED SERVICE PROVIDER");
 				System.out.println("1- Etisalat");
@@ -39,6 +40,7 @@ public class ServiceInterface extends ServiceControl
 			
 			case 2: 
 			{
+				System.out.println();
 				System.out.println("INTERNET PAYMENT MENU");
 				System.out.println("CHOOSE THE DESIRED SERVICE PROVIDER");
 				System.out.println("1- Etisalat");
@@ -54,6 +56,7 @@ public class ServiceInterface extends ServiceControl
 			
 			case 3: 
 			{
+				System.out.println();
 				System.out.println("LANDLINE MENU");
 				System.out.println("CHOOSE THE DESIRED PAYMENT PLAN");
 				System.out.println("1- Monthly");
@@ -67,6 +70,7 @@ public class ServiceInterface extends ServiceControl
 			
 			case 4: 
 			{
+				System.out.println();
 				System.out.println("DONATIONS MENU");
 				System.out.println("EVERY PENNY YOU DONATE MATTERS!");
 				System.out.println("CHOOSE THE DESIRED CHARITY SERVICE TO DONATE TO");

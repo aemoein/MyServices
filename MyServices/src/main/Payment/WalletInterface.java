@@ -7,7 +7,7 @@ public class WalletInterface extends WalletControl
 	Scanner scanner = new Scanner(System.in);
 	public void displayAddForm()
 	{
-		System.out.print("Current Balance: ");
+		System.out.print("Current Balance: $");
 		getWalletBalance();
 		
 		System.out.print("Add Funds: ");
@@ -20,7 +20,7 @@ public class WalletInterface extends WalletControl
 	
 	public void displayCurrentBalance()
 	{
-		System.out.print("Current Wallet Balance: ");
+		System.out.print("Current Wallet Balance: $");
 		getWalletBalance();
 	}
 }

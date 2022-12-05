@@ -13,10 +13,12 @@ public class ConcreteBill implements Bill{
 	@Override
 	public void getbill() 
 	{
+		/*
 		System.out.println("The Requested Service: ");
 		System.out.println(Service);
 		System.out.println("The Amount to be Paid: ");
 		System.out.println(amount);
+		*/
 	}
 
 	public String getService() {

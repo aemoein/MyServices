@@ -1,5 +1,6 @@
 package main.Data;
 
-public class DataControl {
+public class DataControl 
+{
 
 }

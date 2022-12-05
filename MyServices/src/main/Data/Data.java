@@ -19,6 +19,7 @@ public class Data {
 	private ArrayList <PaymentTransaction> PayTransactions;
 	private ArrayList <String> DiscountedServices;
 	private ArrayList <String> DiscountedUsers;
+	Wallet wallet = new Wallet(user.getUserID(), 0);
 	
 	private Data() 
 	{
@@ -30,6 +31,7 @@ public class Data {
 		DiscountedServices = new ArrayList <String>();
 		DiscountedUsers = new ArrayList <String>();
 		users.add(user);
+		wallets.add(wallet);
 	}
 	
 	public ArrayList<String> getDiscountedUsers() {

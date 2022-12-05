@@ -1,5 +1,6 @@
 package main.Data;
 
-public class DataInterface {
+public class DataInterface 
+{
 	
 }

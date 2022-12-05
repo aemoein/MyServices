@@ -127,7 +127,6 @@ public class UserControl {
 			while (i.hasNext()) 
 			{
 				tempUser = i.next();
-				System.out.println("UID: " + tempUser.getUserID());
 				String CurrentUserName = tempUser.getUserName();
 				String CurrPassword = tempUser.getpassword();
 				String CurrEmail = tempUser.getEmail();

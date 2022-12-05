@@ -45,6 +45,7 @@ public class MenuInterface {
 			case 1: 
 			{
 				paymentInterface.DisplayPaymentForm(serviceInterface.DisplayServiceForm());
+				System.out.println();
 				break;
 			}
 			
@@ -54,6 +55,7 @@ public class MenuInterface {
 				System.out.println("Choose From The Options Below");
 				System.out.println("1- Request A Refund");
 				System.out.println("2- Check A Refund Request");
+				System.out.print("Choice: ");
 				choice2 = scanner.nextInt();
 				
 				switch (choice2) 
@@ -72,18 +74,21 @@ public class MenuInterface {
 					default:
 						throw new IllegalArgumentException("Unexpected value: " + choice2);
 				}
+				System.out.println();
 				break;
 			}
 			
 			case 3: 
 			{
 				transactionControl.getTransactions();
+				System.out.println();
 				break;
 			}
 			
 			case 4: 
 			{
 				userControl.printCurrentUser();
+				System.out.println();
 				break;
 			}
 			
@@ -93,6 +98,7 @@ public class MenuInterface {
 				System.out.println("Choose From The Options Below");
 				System.out.println("1- Add Funds");
 				System.out.println("2- View Avaliable Funds");
+				System.out.print("Choice: ");
 				choice2 = scanner.nextInt();
 				
 				switch (choice2) 
@@ -111,11 +117,13 @@ public class MenuInterface {
 					default:
 						throw new IllegalArgumentException("Unexpected value: " + choice2);
 				}
+				System.out.println();
 				break;
 			}
 			case 6: 
 			{
 				menuflag = false;
+				System.exit(0);
 				break;
 			}
 			

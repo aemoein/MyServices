@@ -1,5 +1,7 @@
 package main.User;
 
+import main.Payment.Wallet;
+
 public class User {
 	private String FirstName,LastName,
 	UserName,Email,password,
@@ -8,7 +10,8 @@ public class User {
 	private char gender;
 	private boolean SuperUserAccess;
 	
-	public User() {
+	public User() 
+	{
 		this.UserID = UserCounter.UserCounter;
 		this.FirstName = "";
 		this.LastName = "";
@@ -122,6 +125,8 @@ public class User {
 							+SuperUserAccess+"\n"
 							+UserID+"\n");
 	}
+	
+	
 	
 
 }
