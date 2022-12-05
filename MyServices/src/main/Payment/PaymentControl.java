@@ -10,7 +10,7 @@ public class PaymentControl extends Discount{
 		return payment;
 	}
 	
-	public int getBill(Payment payment)
+	public void getBill(Payment payment)
 	{
 		Bill bill = new ConcreteBill(payment.getServiceName() ,payment.getAmount());
 		
@@ -23,13 +23,13 @@ public class PaymentControl extends Discount{
 				Bill billOverallDisBill = new ServiceDiscount(billSerDisBill);
 				billOverallDisBill.getbill();
 				System.out.println("Service & Overall Discount Applied");
-				return billOverallDisBill.getAmount();
+				payment.setAmount(billOverallDisBill.getAmount()); 
 			}
 			else 
 			{
 				billSerDisBill.getbill();
 				System.out.println("Service Discount Applied");
-				return billSerDisBill.getAmount();
+				payment.setAmount(billSerDisBill.getAmount());
 			}
 		}
 		
@@ -38,18 +38,18 @@ public class PaymentControl extends Discount{
 			Bill billOverallDisBill = new ServiceDiscount(bill);
 			billOverallDisBill.getbill();
 			System.out.println("Overall Discount Applied");
-			return billOverallDisBill.getAmount();
+			payment.setAmount(billOverallDisBill.getAmount());
 		}
 		
 		else 
 		{
 			bill.getbill();
 			System.out.println("No Discount Applied");
-			return bill.getAmount();
+			payment.setAmount(bill.getAmount());
 		}
 	}
 	
-	public void payBill(int amount, int choice)
+	public void payBill(Payment payment, int choice)
 	{
 		PaymentMethod paymentMethod;
 		switch (choice) 
@@ -57,32 +57,27 @@ public class PaymentControl extends Discount{
 			case 1: 
 			{
 				paymentMethod = new Cash();
-				paymentMethod.pay(amount);
+				paymentMethod.pay(payment.getAmount());
 			}
 			case 2: 
 			{
 				paymentMethod = new Credit_Card();
-				paymentMethod.pay(amount);
+				paymentMethod.pay(payment.getAmount());
 			}
 			case 3: 
 			{
 				paymentMethod = new WalletPay();
-				paymentMethod.pay(amount);
+				paymentMethod.pay(payment.getAmount());
 			}
 			default:
 				throw new IllegalArgumentException("Unexpected value: " + choice);
 		}
 	}
 	
-	public void createTransaction(int UID, String service, int amount)
+	public void createTransaction(Payment payment)
 	{
 		TransactionControl tControl = new TransactionControl();
-		tControl.newPaymentTransaction(UID, service, amount);
+		tControl.newPaymentTransaction(payment.getUID(), payment.getServiceName(), payment.getAmount());
 		System.out.println("Transaction Completed Successfully");
-	}
-	
-	public void getService()
-	{
-		
 	}
 }

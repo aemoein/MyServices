@@ -7,17 +7,22 @@ import main.MenuInterface;
 public class PaymentInterface extends PaymentControl{
 	
 	
-	void DisplayPaymentForm()
+	public void DisplayPaymentForm(Payment payment)
 	{
 		MenuInterface menuInterface = new MenuInterface();
-		String Service = " ";
-		int UID = 0, amount = 0, paymentProcess, billAmount = 0;
+		
+		int paymentProcess, billAmount = 0;
 		System.out.println("PAYMENT FORM");
-		billAmount = getBill(startPayment(UID, Service, billAmount));
+		
+		getBill(payment);
+		System.out.print("SERVICE NAME: ");
+		System.out.println(payment.getServiceName());
+		
+		System.out.print("AMOUNT: $");
+		System.out.println(payment.getAmount());
 		
 		System.out.println("1- PROCEED TO PAYMENT");
 		System.out.println("2- CANCEL AND RETURN TO MAIN MENU");
-		
 		Scanner scanner = new Scanner(System.in);
 		paymentProcess = scanner.nextInt();
 		
@@ -30,8 +35,8 @@ public class PaymentInterface extends PaymentControl{
 			System.out.println("3- Wallet");
 			choice = scanner.nextInt();
 			
-			payBill(billAmount, choice);
-			createTransaction(UID, Service, billAmount);
+			payBill(payment, choice);
+			createTransaction(payment);
 			
 			int choiceB;
 			System.out.println("1- RETURN TO MAIN MENU");
@@ -40,12 +45,12 @@ public class PaymentInterface extends PaymentControl{
 			
 			if (choiceB == 1)
 			{
-				//add a code over here to return to Sign up/Login
+				menuInterface.menuForm();
 			}
 			
 			if (choiceB == 2)
 			{
-				menuInterface.menuForm();
+				//add a code over here to return to Sign up/Login
 			}
 		}
 		
