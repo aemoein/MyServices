@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class WeInternetPayment implements We
 {
 	Scanner input = new Scanner(System.in);
-	private String ServiceName = "We Internet Payment";
+	private String ServiceName = "We Internet Payment\t";
 	private int Amount = 300;
 	
 	@Override

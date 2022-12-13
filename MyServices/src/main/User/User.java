@@ -1,7 +1,5 @@
 package main.User;
 
-import main.Payment.Wallet;
-
 public class User {
 	private String FirstName,LastName,
 	UserName,Email,password,
@@ -12,7 +10,7 @@ public class User {
 	
 	public User() 
 	{
-		this.UserID = UserCounter.UserCounter;
+		this.UserID = UserCounter.UserCounter;;
 		this.FirstName = "";
 		this.LastName = "";
 		this.UserName = "";
@@ -23,13 +21,13 @@ public class User {
 		this.SuperUserAccess = false;
 		UserCounter.UserCounter++;
 	}
-	
+
 	public User(String FirstName,String LastName,
 		String Email,String userNameAccess,
 		String password,String PhoneNumber,
 		char gender,boolean SuperUserAcsess) 
 	{
-		UserID++;
+		UserID = UserCounter.UserCounter;
 		this.FirstName = FirstName;
 		this.LastName = LastName;
 		this.UserName = userNameAccess;
@@ -38,9 +36,11 @@ public class User {
 		this.PhoneNumber = PhoneNumber;
 		this.gender = gender;
 		this.SuperUserAccess = SuperUserAcsess;
+		UserCounter.UserCounter++;
 	}
 	
 	//setters.
+	
 	public void setFirstName(String FirstName) {
 	this.FirstName = FirstName;
 	}
@@ -113,16 +113,37 @@ public class User {
 	}
 	
 	
-	public void display() {
-		System.out.println(FirstName+"\n"
-							+LastName+"\n"
-							+UserName+"\n"
-							+password+"\n"
-							+PhoneNumber+"\n"
-							+gender+"\n"
-							+Email+"\n"
-							+SuperUserAccess+"\n"
-							+UserID+"\n");
+	public void display() 
+	{				
+		System.out.println("User ID:\t\t " + UserID);
+		System.out.println("Name:\t\t " + FirstName + " " + LastName);
+		System.out.println("Email:\t\t " + Email);
+		System.out.println("Phone Number:\t " + PhoneNumber);
+		System.out.println("User Name:\t " + UserName);
+		String Gender, Status;
+		
+		if(gender == 'm')
+		{
+			Gender = "Male";
+			System.out.println("Gender:\t\t " + Gender);
+		}
+		else if (gender == 'f')
+		{
+			Gender = "Female";
+			System.out.println("Gender:\t\t " + Gender);
+		}
+		
+		if(SuperUserAccess == true)
+		{
+			Status = "Admin";
+			System.out.println("Status:\t\t " + Status);
+		}
+		else if (SuperUserAccess == false)
+		{
+			Status = "User";
+			System.out.println("Status:\t\t " + Status);
+		}
+		
 	}
 	
 	

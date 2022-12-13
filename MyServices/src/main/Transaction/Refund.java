@@ -1,10 +1,9 @@
 package main.Transaction;
 
-import main.User.UserControl;
+import main.User.CurrentUser;
 
 public class Refund extends RefundControl 
 {
-	private UserControl userControl = new UserControl();
 	private static int RefundId;
 	private int UID;
 	private String RefundStatus;
@@ -30,7 +29,7 @@ public class Refund extends RefundControl
 	public Refund(ITransaction refundTransaction) 
 	{
 		RefundStatus = "Pending Review";
-		UID = userControl.getCurrentUser().getUserID();
+		UID = CurrentUser.currentUser.getUserID();
 		RefundId++;
 		this.refundTransaction = refundTransaction;
 	}

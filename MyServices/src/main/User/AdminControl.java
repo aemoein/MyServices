@@ -1,8 +1,11 @@
 package main.User;
 
+import main.Data.DataControl;
+
 public class AdminControl 
 {
-	public String SelectService(int c)
+	DataControl dataControl = new DataControl();
+;	public String SelectService(int c)
 	{
 		String ServiceName;
 		switch (c) 
@@ -71,5 +74,20 @@ public class AdminControl
 				throw new IllegalArgumentException("Unexpected value: " + c);
 		}
 		
+	}
+	
+	public void AddServiceDiscount(int choice)
+	{
+		dataControl.AddServiceDiscount(SelectService(choice));
+	}
+	
+	public void AddUserDiscount(String id)
+	{
+		dataControl.AddUserDiscount(id);
+	}
+	
+	public void DisplayAllUsers()
+	{
+		dataControl.DisplayAllUsers();
 	}
 }

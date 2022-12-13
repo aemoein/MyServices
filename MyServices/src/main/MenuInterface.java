@@ -8,6 +8,7 @@ import main.Service.ServiceInterface;
 import main.Transaction.RefundInterface;
 import main.Transaction.TransactionControl;
 import main.Transaction.TransactionInterface;
+import main.User.CurrentUser;
 import main.User.UserControl;
 
 public class MenuInterface {
@@ -17,11 +18,11 @@ public class MenuInterface {
 	RefundInterface refundInterface = new RefundInterface();
 	TransactionControl transactionControl = new TransactionControl();
 	TransactionInterface transactionInterface = new TransactionInterface();
+	CurrentUser currentUser = new CurrentUser();
 	WalletInterface walletInterface = new WalletInterface();
 	UserControl userControl = new UserControl();
 	SystemEntry systemEntry = new SystemEntry();
 	Scanner scanner = new Scanner(System.in);
-	int choice, choice2;
 	boolean menuflag = true;
 	
 
@@ -40,11 +41,9 @@ public class MenuInterface {
 		System.out.println("4- View Account");
 		System.out.println("5- Wallet Options");
 		System.out.println("6- EXIT");
-		System.out.print("Enter Choice: ");
-		choice = scanner.nextInt();
-		System.out.println();
 		
-		switch (choice) {
+		switch (Input.inputInt(scanner)) 
+		{
 			case 1: 
 			{
 				paymentInterface.DisplayPaymentForm(serviceInterface.DisplayServiceForm());
@@ -54,73 +53,27 @@ public class MenuInterface {
 			
 			case 2: 
 			{
-				System.out.println("REFUND MENU");
-				System.out.println("Choose From The Options Below");
-				System.out.println("1- Request A Refund");
-				System.out.println("2- Check A Refund Request");
-				System.out.print("Choice: ");
-				choice2 = scanner.nextInt();
-				
-				switch (choice2) 
-				{
-					case 1: 
-					{
-						refundInterface.RequestForm();
-						break;
-					}
-					
-					case 2: 
-					{
-						refundInterface.DisplayRefundRequests();
-						break;
-					}
-					default:
-						throw new IllegalArgumentException("Unexpected value: " + choice2);
-				}
-				System.out.println();
+				refundInterface.refundForm();
 				break;
 			}
 			
 			case 3: 
 			{
 				transactionInterface.getUserTransactions();
-				//transactionControl.getTransactions();
 				break;
 			}
 			
 			case 4: 
 			{
-				userControl.printCurrentUser();
+				System.out.println();
+				currentUser.printCurrentUser();
 				System.out.println();
 				break;
 			}
 			
 			case 5: 
 			{
-				System.out.println("WALLET MENU");
-				System.out.println("Choose From The Options Below");
-				System.out.println("1- Add Funds");
-				System.out.println("2- View Avaliable Funds");
-				System.out.print("Choice: ");
-				choice2 = scanner.nextInt();
-				
-				switch (choice2) 
-				{
-					case 1: 
-					{
-						walletInterface.displayAddForm();
-						break;
-					}
-					
-					case 2: 
-					{
-						walletInterface.displayCurrentBalance();
-						break;
-					}
-					default:
-						throw new IllegalArgumentException("Unexpected value: " + choice2);
-				}
-				System.out.println();
+				walletInterface.walletForm();
 				break;
 			}
 			case 6: 
@@ -131,10 +84,11 @@ public class MenuInterface {
 			}
 			
 			
-		default:
-			throw new IllegalArgumentException("Unexpected value: " + choice);
+			default:
+				System.out.println("PLEASE ENTER A VALID OPTION");
+				break;
 		}
 	} while (menuflag == true);
-}
+	}
 	
 }

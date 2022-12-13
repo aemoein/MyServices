@@ -2,7 +2,7 @@ package main.Service;
 
 import main.Payment.Payment;
 import main.Payment.PaymentControl;
-import main.User.UserControl;
+import main.User.CurrentUser;
 
 public class ServiceControl extends PaymentControl
 {
@@ -11,8 +11,7 @@ public class ServiceControl extends PaymentControl
 	
 	public void getCurrentUID()
 	{
-		UserControl userControl = new UserControl();
-		UID = userControl.getCurrentUser().getUserID();
+		UID = CurrentUser.currentUser.getUserID();
 	}
 	
 	public Payment ServicePay(int UID, String ServiceName, int amount)
@@ -32,9 +31,7 @@ public class ServiceControl extends PaymentControl
 				//E
 				factoryServices.CreateEtisalatForm().EtisalatForm();
 				serviceName = factoryServices.CreateEtisalatForm().returnServiceName();
-				System.out.println("ServiceNameCheck: " + serviceName);
 				Amount = factoryServices.CreateEtisalatForm().returnAmount();
-				System.out.println("AmountCheck: " + Amount);
 				return ServicePay(UID, serviceName, Amount);
 			}
 			

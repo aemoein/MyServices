@@ -4,6 +4,7 @@ import main.Transaction.TransactionControl;
 
 public class PaymentControl extends Discount{
 
+	PaymentMethod paymentMethod;
 	public Payment startPayment(int UID, String service, int amount)
 	{
 		Payment payment = new Payment(UID, service, amount);
@@ -50,33 +51,22 @@ public class PaymentControl extends Discount{
 		}
 	}
 	
-	public void payBill(Payment payment, int choice)
+	public void CashPayment(Payment payment)
 	{
-		PaymentMethod paymentMethod;
-		switch (choice) 
-		{
-			case 1: 
-			{
-				paymentMethod = new Cash();
-				paymentMethod.pay(payment.getAmount());
-				
-				break;
-			}
-			case 2: 
-			{
-				paymentMethod = new Credit_Card();
-				paymentMethod.pay(payment.getAmount());
-				break;
-			}
-			case 3: 
-			{
-				paymentMethod = new WalletPay();
-				paymentMethod.pay(payment.getAmount());
-				break;
-			}
-			default:
-				throw new IllegalArgumentException("Unexpected value: " + choice);
-		}
+		paymentMethod = new Cash();
+		paymentMethod.pay(payment.getAmount());
+	}
+	
+	public void CreditCardPayment(Payment payment)
+	{
+		paymentMethod = new Credit_Card();
+		paymentMethod.pay(payment.getAmount());
+	}
+	
+	public boolean WalletPayment(Payment payment)
+	{
+		paymentMethod = new WalletPay();
+		return paymentMethod.pay(payment.getAmount());
 	}
 	
 	public void createTransaction(Payment payment)

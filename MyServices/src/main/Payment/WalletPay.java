@@ -3,8 +3,8 @@ package main.Payment;
 public class WalletPay extends WalletControl implements PaymentMethod
 {	
 	@Override
-	public void pay(int amountPaid) 
+	public boolean pay(int amountPaid) 
 	{
-		WalletPay(amountPaid);
+		return WalletPay(amountPaid);
 	}
 }

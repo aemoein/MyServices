@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Schools implements Donations{
 	
 	Scanner scanner = new Scanner(System.in);
-	private String ServiceName = "School Donation";
+	private String ServiceName = "School Donation\t";
 	private int Amount;
 	
 	@Override

@@ -1,16 +1,13 @@
 package main.User;
 
-import java.util.Iterator;
 import java.util.Scanner;
-
+import main.Input;
 import main.SystemEntry;
-import main.Data.Data;
 import main.Data.DataInterface;
 import main.Transaction.RefundInterface;
 
 public class AdminMenuForm extends AdminControl
 {
-	private Data data = Data.getInstance();;
 	Scanner scanner = new Scanner(System.in);
 	SystemEntry systemEntry = new SystemEntry();
 	RefundInterface refundInterface = new RefundInterface();
@@ -18,8 +15,8 @@ public class AdminMenuForm extends AdminControl
 	
 	public void AdminMenu() 
 	{
-		int choice,c2;
 		boolean flag = true;
+		System.out.println();
 		System.out.println("ADMIN MENU");
 		
 		do {
@@ -29,10 +26,7 @@ public class AdminMenuForm extends AdminControl
 		System.out.println("3- Add Overall Discounts");
 		System.out.println("4- Display Data");
 		System.out.println("5- EXIT");
-		System.out.print("Choice: ");
-		choice = scanner.nextInt();
-		
-		switch (choice) 
+		switch (Input.inputInt(scanner)) 
 		{
 			case 1: 
 			{
@@ -42,16 +36,13 @@ public class AdminMenuForm extends AdminControl
 			case 2: 
 			{
 				DisplayAllAvaliableServices();
-				c2 = scanner.nextInt();
-				data.getDiscountedServices().add(SelectService(c2));
+				AddServiceDiscount(Input.inputInt(scanner));
 				break;
 			}
 			case 3: 
 			{
 				DisplayAllUsers();
-				System.out.println("Select User: ");
-				c2 = scanner.nextInt();
-				data.getDiscountedUsers().add(Integer.toString(c2));
+				AddUserDiscount(Integer.toString(Input.inputInt(scanner)));
 				break;
 			}
 			case 4: 
@@ -65,7 +56,8 @@ public class AdminMenuForm extends AdminControl
 				break;
 			}
 			default:
-				throw new IllegalArgumentException("Unexpected value: " + choice);
+				System.out.println("PLEASE ENTER A VALID OPTION");
+				break;
 		}
 		}while(flag);
 	}
@@ -82,18 +74,5 @@ public class AdminMenuForm extends AdminControl
 		System.out.println("8- We Internet Payment");
 		System.out.println("9- Monthly Landline Payment");
 		System.out.println("10- Quarterly Landline Payment");
-		System.out.print("Choice: ");
-	}
-	
-	public void DisplayAllUsers()
-	{
-		while(!data.getUsers().isEmpty()) 
-		{
-			Iterator<User> itr = data.getUsers().iterator();
-			while (itr.hasNext()) 
-			{
-				itr.next().display();
-			}
-		}
 	}
 }

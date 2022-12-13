@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import main.Payment.Wallet;
 import main.Transaction.ITransaction;
-import main.Transaction.PaymentTransaction;
 import main.Transaction.Refund;
 import main.User.User;
 

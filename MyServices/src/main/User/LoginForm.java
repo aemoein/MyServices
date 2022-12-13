@@ -1,14 +1,16 @@
 package main.User;
 
 import java.util.Scanner;
-
 import main.MenuInterface;
+import main.SystemEntry;
 
-public class LoginForm {
+public class LoginForm 
+{
 	private String userName,password;
 	private UserControl userControl;
 	private MenuInterface menuInterface = new MenuInterface();
 	private AdminMenuForm adminMenuForm = new AdminMenuForm();
+	private SystemEntry systemEntry = new SystemEntry();
 	
 	Scanner myscanner =  new Scanner(System.in);
 	
@@ -28,6 +30,8 @@ public class LoginForm {
 	
 	public void FillInfo()
 	{
+		System.out.println();
+		System.out.println("--- Login Form ---");
 		System.out.print("please enter your username or Email: ");
 		String UserName = myscanner.next();
 		this.setUserName(UserName);
@@ -35,25 +39,32 @@ public class LoginForm {
 		System.out.print("please enter your password: ");
 		String password = myscanner.next();
 		this.setPassword(password);
+		System.out.println();
 	}
 	
 	public void loginUser() 
 	{
+
 		FillInfo();
 		
 		if(userControl.checkUserLoggedIN(userName, password)) 
 		{
-			if(userControl.getCurrentUser().getAccess()) 
+			if(CurrentUser.currentUser.getAccess()) 
 			{
 				System.out.println();
 				adminMenuForm.AdminMenu();
 			}
 			
-			else if (userControl.getCurrentUser().getAccess() == false)
+			else if (CurrentUser.currentUser.getAccess() == false)
 			{
 				System.out.println();
 				menuInterface.menuForm();
 			}
+		} 
+		
+		else 
+		{
+			systemEntry.SystemStart();
 		}
 	}
 }

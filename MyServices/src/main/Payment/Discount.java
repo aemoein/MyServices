@@ -1,40 +1,18 @@
 package main.Payment;
 
-
-import java.util.Iterator;
-
-import main.Data.Data;
+import main.Data.DataControl;
 
 public class Discount {
-	Data data = Data.getInstance();
+	DataControl dataControl = new DataControl();
 	
 	public boolean serviceDiscount(String ServiceName)
 	{
-		String ServiceN;
-		Iterator<String> itr = data.getDiscountedServices().iterator();
-		while(itr.hasNext())
-		{
-			ServiceN = itr.next();
-			if(ServiceN == ServiceName)
-			{
-				return true;
-			}
-		}
-		return false;
+		return dataControl.ServiceDiscountCheck(ServiceName);
 	}
 	
 	public boolean overallDiscount(int id)
 	{
-		Iterator<String> itr = data.getDiscountedUsers().iterator();
-		while(itr.hasNext())
-		{
-			int UID = Integer.parseInt(itr.next());
-			if(id == UID)
-			{
-				return true;
-			}
-		}
-		return false;
+		return dataControl.OverallDiscountCheck(id);
 	}
 	
 }

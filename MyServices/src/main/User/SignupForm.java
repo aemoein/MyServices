@@ -17,12 +17,11 @@ public class SignupForm
 		UserControl = new UserControl();
 		user = new NormalUser();
 	}
-	
-	
 		
 	public void FillInfo()
 	{
-		
+		System.out.println();
+		System.out.println("--- Sign Up Form ---");
 		System.out.print("please enter the First Name: ");
 		String FirstName = myscanner.next();
 		this.setFirstName(FirstName);
@@ -38,10 +37,6 @@ public class SignupForm
 		System.out.print("please enter the User-Name: ");
 		String UserName = myscanner.next();
 		this.setUserName(UserName);
-		
-		/*******************************************************************
-		* please make sure to check if the username unique in the database *
-		*******************************************************************/
 
 		boolean loop = true;
 		while(loop) 
@@ -63,10 +58,7 @@ public class SignupForm
 			
 		}
 		
-		/*
-		 * "uvlkwtv4hpou  hpoeq5yh oh poru euhop" <-this is not number
-		 * check if PHONENUMBER contains letters or not..  
-		 */
+		
 		System.out.print("please enter your phone number: ");
 		String PhoneNumber = myscanner.next();
 		this.setPhoneNumber(PhoneNumber);
@@ -74,10 +66,6 @@ public class SignupForm
 		System.out.print("please choose your gender (m:male /f:female): ");
 		char gender = myscanner.next().charAt(0);
 		this.setgender(gender);
-		
-		/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-		 *  gender must be f or m otherwise fuck em
-		 */
 		
 	}
 	
@@ -89,7 +77,7 @@ public class SignupForm
 		UserControl.SetUser(this.user);
 		UserControl.ControlInfo(getinfo());
 		UserControl.constructUser();
-		UserControl.RigersterUser(UserControl.getUser());
+		UserControl.RegisterUser(UserControl.getUser());
 		loginForm.loginUser();
 	}
 	
@@ -152,6 +140,4 @@ public class SignupForm
 		public char getGender() {
 			return this.gender;
 		}
-		
-	
 }

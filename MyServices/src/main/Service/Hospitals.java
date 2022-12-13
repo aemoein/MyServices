@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Hospitals implements Donations {
 
 	Scanner scanner = new Scanner(System.in);
-	private String ServiceName = "Hospital Donation";
+	private String ServiceName = "Hospital Donation\t";
 	private int Amount;
 	
 	@Override

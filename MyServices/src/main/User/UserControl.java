@@ -1,67 +1,32 @@
 package main.User;
 
-import java.util.Iterator;
-import main.Data.Data;
-import main.Payment.Wallet;
+import main.Data.DataControl;
 
 public class UserControl {
 	
-	/************************************/
-	
-	private Data database = Data.getInstance(); 		
-	//a DATABASE to control the sign-up. 
-	
-	/************************************/
-	
-	
-/****************************************************************************
-****************************************************************************/
+	DataControl dataControl = new DataControl();
 	
 	//here we build the user from the sign up form.
-	
 	private iUserBuilder user;
 	private String FirstName,LastName,
 		UserName,Email,password,
 		PhoneNumber;
 	private char gender;
-	private static User currentUser;
 	
-	
-	public void setCurrentUser(User currentUser) {
-		UserControl.currentUser = currentUser;
-	}
-	
-	public User getCurrentUser() {return UserControl.currentUser;}
-	
-	public void printCurrentUser()
+	public User getUser() 
 	{
-		System.out.println("Name:\t\t " + currentUser.getFirstName() + " " + currentUser.getLasstName());
-		System.out.println("Email:\t\t " + currentUser.getEmail());
-		System.out.println("Phone Number:\t " + currentUser.getPhoneNumber());
-		System.out.println("User Name:\t " + currentUser.getUserName());
-		String Gender;
-		if(currentUser.getGender() == 'm')
-		{
-			Gender = "Male";
-			System.out.println("Gender:\t\t " + Gender);
-		}
-		else if (currentUser.getGender() == 'f')
-		{
-			Gender = "Female";
-			System.out.println("Gender:\t\t " + Gender);
-		}
-			
+		return user.getUser();
 	}
-	
-	public User getUser() {return user.getUser();}
 	
 	
 	//this function sets the user superuser or normal user.  
-	public void SetUser(iUserBuilder user) {
+	public void SetUser(iUserBuilder user) 
+	{
 		this.user = user;
 	}
 	
-	public void ControlInfo(SignupForm sForm) {
+	public void ControlInfo(SignupForm sForm) 
+	{
 		this.FirstName=sForm.getFirstName();
 		this.LastName=sForm.getLasstName();
 		this.gender =sForm.getGender();
@@ -71,9 +36,8 @@ public class UserControl {
 		this.UserName=sForm.getUserName();
 	}
 	
-	
-	
-	public void constructUser() {
+	public void constructUser() 
+	{
 		user.createUser();
 		user.setAccess();
 		user.setEmail(Email);
@@ -85,94 +49,25 @@ public class UserControl {
 		user.setGender(gender);
 	}
 	
-	/*********************************************************
-	* 	These functions will be used in the sign-up form	 *
-	*********************************************************/
-	
-	public boolean checkuserSignUP(User User) 
+	public void RegisterUser(User User) 
 	{
-		if(UserCounter.UserCounter == 1)
-		{
-			return true;
-		}
-		
-		else 
-		{
-				Iterator<User> i = database.getUsers().iterator();
-				while (i.hasNext()) {
-					
-					if(i.next().getEmail() == User.getEmail()) {
-						System.out.println("Sorry this email is already taken :("+"\n");
-						return false;
-					}
-					
-					if(i.next().getUserName() == User.getUserName()) {
-						System.out.println("Sorry this username is already taken :("+"\n");
-						return false;	
-					}
-				}
-			}
-			return true;
+		dataControl.RegisterUser(User);
 	}
 	
-	public void createwallet(int UID)
-	{
-		Wallet wallet = new Wallet(UID, 0);
-		database.getWallets().add(wallet);
-	}
-	
-	public void RigersterUser(User User) 
-	{
-		if(checkuserSignUP(User)) 
-		{
-			database.getUsers().add(User);
-			createwallet(User.getUserID());
-		}
-	}
-	
-	/*********************************************************
-	* 	 These functions will be used in the log-in form	 *
-	*********************************************************/
-	
+	// These functions will be used in the log-in form
 	public boolean checkUserLoggedIN(String UserName,String Password) 
 	{
-		User tempUser;
-			Iterator<User> i = database.getUsers().iterator();
-			while (i.hasNext()) 
-			{
-				tempUser = i.next();
-				String CurrentUserName = tempUser.getUserName();
-				String CurrPassword = tempUser.getpassword();
-				String CurrEmail = tempUser.getEmail();
-				
-				if(CurrentUserName.equals(UserName) || CurrEmail.equals(UserName))
-				{
-					if (Password.equals(CurrPassword))
-					{
-						setCurrentUser(tempUser); 
-						return true;
-					}
-				}	
-			}
-		System.out.println("The Username/Email or password is incorrect..");
-		return false;
+		return dataControl.checkUserLoggedIN(UserName, Password);
 	}
 	
 	public boolean checkAdmin(String UserName,String password) 
 	{
-			if(currentUser.getAccess() == true) 
+			if(CurrentUser.currentUser.getAccess() == true) 
 			{
 				return true;
 			}
+			
 		return false;
 	}
 	
-	
-	
-	/*******************************************************
-	* this function will be called one time to  		   *
-	*******************************************************/
-	
-/****************************************************************************
-****************************************************************************/
 }

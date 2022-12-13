@@ -1,17 +1,16 @@
 package main.Transaction;
 
-import java.util.Iterator;
-
-import main.Data.Data;
+import main.Data.DataControl;
+import main.User.CurrentUser;
 import main.User.UserControl;
 
 public class TransactionControl {
-	Data data = Data.getInstance();
 	UserControl userControl = new UserControl();
+	DataControl dataControl = new DataControl();
 	
 	public int getCurrentUID()
 	{
-		return userControl.getCurrentUser().getUserID();
+		return CurrentUser.currentUser.getUserID();
 	}
 	
 	public void printTransactions(ITransaction transaction) 
@@ -22,52 +21,24 @@ public class TransactionControl {
 	
 	public void SaveTranscation(ITransaction transaction)
 	{
-		data.getTransactions().add(transaction);
+		dataControl.SaveTranscation(transaction);
 	}
 	
 	
 	public ITransaction getTransaction(int id)
 	{
-		Iterator<ITransaction> itr = data.getPayTransactions().iterator();
-		ITransaction transaction;
-		while(itr.hasNext())
-		{	transaction = itr.next();
-			if(transaction.getTID() == id)
-			{
-				return transaction;
-			}
-		}
-		return null;
+		return dataControl.getTransaction(id);
 	}
 	
 	
 	public void getTransactions()
 	{
-		if ( data.getTransactions().isEmpty())
-		{
-			System.out.println("NO TRANSACTIONS AVALIABLE");
-		}
-		
-		else
-		{
-			System.out.println("userId"+"\t"+"TransactionID"+"\t"+"Service"+"\t\t\t\t"+"$"+"amount"+"\t\t"+"type");
-			Iterator<ITransaction> itr = data.getTransactions().iterator();
-			ITransaction transaction;
-			while(itr.hasNext())
-			{   transaction = itr.next();
-				if(transaction.getUID() == getCurrentUID())
-				{
-					transaction.printTransaction();
-				}
-			}
-		}
+		dataControl.getUserTransactions();
 	}
 	
 	public void newPaymentTransaction(String service, int amount)
 	{
-		ITransaction transaction = new PaymentTransaction(getCurrentUID(), service, amount);
-		SaveTranscation(transaction);
-		data.getPayTransactions().add(transaction);
+		dataControl.newPaymentTransaction(service, amount);
 	}
 	
 	public void newWalletTransaction(int amount)
@@ -86,24 +57,7 @@ public class TransactionControl {
 	
 	public void getPayTransactions()
 	{
-		if ( data.getPayTransactions().isEmpty())
-		{
-			System.out.println("NO TRANSACTIONS AVALIABLE");
-		}
-		
-		else
-		{
-			System.out.println("userId"+"\t"+"TransactionID"+"\t"+"Service"+"\t\t\t"+"$"+"amount"+"\t"+"type");
-			Iterator<ITransaction> itr = data.getPayTransactions().iterator();
-			ITransaction transaction;
-			while(itr.hasNext())
-			{   transaction = itr.next();
-				if(transaction.getUID() == getCurrentUID())
-				{
-					transaction.printTransaction();
-				}
-			}
-		}
+		dataControl.getUserPayTransactions();
 	}
 	
 	

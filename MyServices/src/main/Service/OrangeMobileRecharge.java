@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class OrangeMobileRecharge implements Orange
 {
 	Scanner input =new Scanner(System.in);
-	private String ServiceName = "Orange Mobile Recharge";
+	private String ServiceName = "Orange Mobile Recharge\t";
 	private static int Amount;
 
 	@Override
