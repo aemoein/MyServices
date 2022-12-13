@@ -154,13 +154,13 @@ public class DataControl
 		return false;
 	}
 	
-	public Wallet getCurrentWallet()
+	public Wallet getCurrentWallet(int UID)
 	{
 		Iterator<Wallet> itr = data.getWallets().iterator();
 		while(itr.hasNext())
 		{
 			Wallet tempWallet = itr.next();
-			if(tempWallet.getUID() == CurrentUser.currentUser.getUserID())
+			if(tempWallet.getUID() == UID)
 			{
 				return tempWallet;
 			}
@@ -255,6 +255,8 @@ public class DataControl
 				return refund;
 			}
 		}
+		System.out.println();
+		System.out.println("No More Refund Requests Avaliable");
 		return null;
 	}
 	

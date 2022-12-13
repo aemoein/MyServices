@@ -15,7 +15,7 @@ public class RefundTransaction extends Transaction implements ITransaction
 	@Override
 	public void printTransaction() 
 	{
-		System.out.println(userId+"\t"+TransactionID+"\t\t"+Service+"\t"+"$"+amount+"\t"+type);
+		System.out.println(userId+"\t"+TransactionID+"\t\t"+Service+"\t\t\t\t"+"$"+amount+"\t"+type);
 	}
 
 	@Override

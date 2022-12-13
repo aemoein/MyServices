@@ -55,9 +55,10 @@ public class RefundInterface extends RefundControl {
 				case 1: 
 				{
 					refund.setRefundStatus("Approved");
-					walletControl.addfunds(refund.getRefundTransaction().getAmount());
+					createRefundTransaction(refund);
 					refund.setFlag(true);
 					flag = false;
+					break;
 				}
 				
 				case 2: 
@@ -65,6 +66,7 @@ public class RefundInterface extends RefundControl {
 					refund.setRefundStatus("Rejected");
 					refund.setFlag(false);
 					flag = false;
+					break;
 				}
 				default:
 					System.out.println("PLEASE ENTER A VALID OPTION");

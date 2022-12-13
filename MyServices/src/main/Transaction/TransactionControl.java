@@ -48,10 +48,10 @@ public class TransactionControl {
 		SaveTranscation(transaction);
 	}
 	
-	public void newRefundTransaction(int amount)
+	public void newRefundTransaction(int id,int amount)
 	{
 		String service = "Refund";
-		ITransaction transaction = new RefundTransaction(getCurrentUID(), service, amount);
+		ITransaction transaction = new RefundTransaction(id, service, amount);
 		SaveTranscation(transaction);
 	}
 	

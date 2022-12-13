@@ -18,7 +18,7 @@ public class AdminControl
 			
 			case 2: 
 			{
-				ServiceName = "Orange Mobile Recharge";
+				ServiceName = "Orange Mobile Recharge\t";
 				return ServiceName;
 			}
 			
@@ -30,7 +30,7 @@ public class AdminControl
 			
 			case 4: 
 			{
-				ServiceName = "We Mobile Recharge";
+				ServiceName = "We Mobile Recharge\t";
 				return ServiceName;
 			}
 			
@@ -42,7 +42,7 @@ public class AdminControl
 			
 			case 6: 
 			{
-				ServiceName = "Orange Internet Payment";
+				ServiceName = "Orange Internet Payment\t";
 				return ServiceName;
 			}
 			
@@ -54,7 +54,7 @@ public class AdminControl
 			
 			case 8: 
 			{
-				ServiceName = "We Internet Payment";
+				ServiceName = "We Internet Payment\t";
 				return ServiceName;
 			}
 			

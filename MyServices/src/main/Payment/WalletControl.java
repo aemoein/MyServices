@@ -9,28 +9,34 @@ public class WalletControl {
 	UserControl userControl = new UserControl();
 	TransactionControl transactionControl = new TransactionControl();
 	
-	public Wallet getwallet()
+	public Wallet getwallet(int UID)
 	{
-		return dataControl.getCurrentWallet();
+		return dataControl.getCurrentWallet(UID);
 	}
 	
-	public void addfunds(int amount)
+	public void addfunds(int UID,int amount)
 	{
-		int newAmount = getwallet().getAmount() + amount;
-		getwallet().setAmount(newAmount);
+		int newAmount = getwallet(UID).getAmount() + amount;
+		getwallet(UID).setAmount(newAmount);
 		transactionControl.newWalletTransaction(amount);
-		System.out.println("New Balance: $"+getwallet().getAmount());
+		System.out.println("New Balance: $"+getwallet(UID).getAmount());
 	}
 	
-	public void getWalletBalance()
+	public void refundAmount(int UID, int amount)
 	{
-		Wallet currWallet = getwallet();
+		int newAmount = getwallet(UID).getAmount() + amount;
+		getwallet(UID).setAmount(newAmount);
+	}
+	
+	public void getWalletBalance(int UID)
+	{
+		Wallet currWallet = getwallet(UID);
 		System.out.println(currWallet.getAmount());
 	}
 	
-	public boolean WalletPay(int amountPaid)
+	public boolean WalletPay(int UID,int amountPaid)
 	{
-		int currAmount =  getwallet().getAmount();
+		int currAmount =  getwallet(UID).getAmount();
 		if (amountPaid > currAmount)
 		{
 			System.out.println("Insufficient Funds Choose another Method");
@@ -39,10 +45,10 @@ public class WalletControl {
 		else 
 		{
 			currAmount = currAmount - amountPaid;
-			getwallet().setAmount(currAmount);
+			getwallet(UID).setAmount(currAmount);
 			System.out.println("Ammount Successfully paid");
 			System.out.print("New Balance is: ");
-			System.out.println(getwallet().getAmount());
+			System.out.println(getwallet(UID).getAmount());
 			return true;
 		}
 	}

@@ -16,10 +16,11 @@ public class AdminMenuForm extends AdminControl
 	public void AdminMenu() 
 	{
 		boolean flag = true;
-		System.out.println();
-		System.out.println("ADMIN MENU");
+		
 		
 		do {
+			System.out.println();
+			System.out.println("--- ADMIN MENU ---");
 		System.out.println("Choose From The Options Below");
 		System.out.println("1- Process Refund Requests");
 		System.out.println("2- Add Service Discounts");

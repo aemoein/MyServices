@@ -2,6 +2,7 @@ package main.Payment;
 
 import java.util.Scanner;
 import main.Input;
+import main.User.CurrentUser;
 
 public class WalletInterface extends WalletControl
 {
@@ -9,12 +10,12 @@ public class WalletInterface extends WalletControl
 	public void displayAddForm()
 	{
 		System.out.print("Current Balance: $");
-		getWalletBalance();
+		getWalletBalance(CurrentUser.currentUser.getUserID());
 		
 		System.out.print("Add Funds: ");
 		int AddedFunds = scanner.nextInt();
 		
-		addfunds(AddedFunds);
+		addfunds(CurrentUser.currentUser.getUserID() ,AddedFunds);
 		
 		System.out.print("Funds Added Successfully");
 	}
@@ -22,7 +23,7 @@ public class WalletInterface extends WalletControl
 	public void displayCurrentBalance()
 	{
 		System.out.print("Current Wallet Balance: $");
-		getWalletBalance();
+		getWalletBalance(CurrentUser.currentUser.getUserID());
 	}
 	
 	public void walletForm()
