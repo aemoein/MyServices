@@ -28,7 +28,7 @@ public class ServiceDiscount extends BillDecorator {
 	}
 
 	@Override
-	public void setAmount() {
+	public void setAmount(int amount) {
 		// TODO Auto-generated method stub
 		
 	}

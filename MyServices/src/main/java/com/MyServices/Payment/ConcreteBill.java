@@ -37,13 +37,9 @@ public class ConcreteBill implements Bill{
 		return amount;
 	}
 
+	@Override
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
 
-	@Override
-	public void setAmount() {
-		// TODO Auto-generated method stub
-		
-	}
 }
