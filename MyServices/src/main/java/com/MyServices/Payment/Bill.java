@@ -4,6 +4,6 @@ public interface Bill {
 	
 	public int getBill();
 	public int getAmount();
-	public void setAmount();
+	public void setAmount(int amount);
 
 }

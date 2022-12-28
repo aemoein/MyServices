@@ -18,10 +18,11 @@ public class PaymentControl extends Discount{
 		if (serviceDiscount(payment.getServiceName()))
 		{
 			Bill billSerDisBill = new ServiceDiscount(bill);
+			bill.setAmount(billSerDisBill.getBill());
 			
 			if (overallDiscount(payment.getUID()))
 			{
-				Bill billOverallDisBill = new ServiceDiscount(billSerDisBill);
+				Bill billOverallDisBill = new ServiceDiscount(bill);
 				System.out.println("Service & Overall Discount Applied");
 				payment.setAmount(billOverallDisBill.getBill()); 
 			}
