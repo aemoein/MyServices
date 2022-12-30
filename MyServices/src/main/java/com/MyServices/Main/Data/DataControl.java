@@ -21,7 +21,23 @@ public class DataControl
 {
 	Data data = Data.getInstance();
 	
-	@GetMapping("/Data/Display/Users")
+	@GetMapping("/Data/Display/User/{id}")
+	public User DisplayAllUsersTest(@PathVariable("id") int UID)
+	{
+		User temUser;
+		Iterator<User> itr = data.getUsers().iterator();
+		while (itr.hasNext()) 
+		{
+			temUser = itr.next();
+			if (temUser.getUserID() == UID)
+			{
+				return itr.next();
+			}
+		}
+		return null;
+	}
+	
+	@GetMapping("/Data/Display/AllUsers")
 	public void DisplayAllUsers()
 	{
 		Iterator<User> itr = data.getUsers().iterator();
@@ -242,8 +258,8 @@ public class DataControl
 		}
 	}
 	
-	@GetMapping("/Data/Check/User/Login/{username}")
-	public boolean checkUserLoggedIN(@RequestBody String UserName,String Password) 
+	@GetMapping("/Data/Check/User/Login/{username}/{password}")
+	public boolean checkUserLoggedIN(@PathVariable("username") String UserName, @PathVariable("password") String Password) 
 	{
 		User tempUser;
 			Iterator<User> i = data.getUsers().iterator();
@@ -268,7 +284,7 @@ public class DataControl
 	}
 	
 	
-	@PostMapping("/Data/Display/PendingRefundRquest")
+	@PostMapping ("/Data/Display/PendingRefundRequest")
 	public Refund getPendingRefund()
 	{
 		Iterator<Refund> itr = data.getRefundRequest().iterator();

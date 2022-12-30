@@ -1,5 +1,8 @@
 package com.MyServices.Main.User;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class User {
 	private String FirstName,LastName,
 	UserName,Email,password,

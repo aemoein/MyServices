@@ -44,7 +44,6 @@ public class LoginForm
 	
 	public void loginUser() 
 	{
-
 		FillInfo();
 		
 		if(userControl.checkUserLoggedIN(userName, password)) 

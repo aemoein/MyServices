@@ -1,6 +1,8 @@
 package com.MyServices.Main.User;
 
+import org.springframework.stereotype.Component;
 
+@Component
 public class SuperUser implements iUserBuilder {
 	private User user;
 	

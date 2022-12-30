@@ -2,6 +2,9 @@ package com.MyServices.Main.User;
 
 import java.util.Scanner;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class SignupForm 
 {
 	private String FirstName,LastName,
@@ -39,6 +42,7 @@ public class SignupForm
 		this.setUserName(UserName);
 
 		boolean loop = true;
+		
 		while(loop) 
 		{
 			System.out.print("please enter the password: ");
@@ -58,7 +62,6 @@ public class SignupForm
 			
 		}
 		
-		
 		System.out.print("please enter your phone number: ");
 		String PhoneNumber = myscanner.next();
 		this.setPhoneNumber(PhoneNumber);
@@ -69,7 +72,8 @@ public class SignupForm
 		
 	}
 	
-	public SignupForm getinfo() {return this;};
+	public SignupForm getinfo() 
+	{return this;};
 	
 	public void SignUpUser() 
 	{

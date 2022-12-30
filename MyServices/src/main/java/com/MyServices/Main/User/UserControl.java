@@ -1,7 +1,13 @@
 package com.MyServices.Main.User;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.MyServices.Main.Data.DataControl;
 
+@RestController
 public class UserControl {
 	
 	DataControl dataControl = new DataControl();
@@ -36,6 +42,7 @@ public class UserControl {
 		this.UserName=sForm.getUserName();
 	}
 	
+	@PostMapping ("/User/Build")
 	public void constructUser() 
 	{
 		user.createUser();
@@ -49,24 +56,26 @@ public class UserControl {
 		user.setGender(gender);
 	}
 	
+	@PostMapping ("/User/Register")
 	public void RegisterUser(User User) 
 	{
 		dataControl.RegisterUser(User);
 	}
 	
 	// These functions will be used in the log-in form
-	public boolean checkUserLoggedIN(String UserName,String Password) 
+	@GetMapping ("/User/Check/{username}/{password}")
+	public boolean checkUserLoggedIN(@PathVariable("username") String UserName,@PathVariable("password") String Password) 
 	{
 		return dataControl.checkUserLoggedIN(UserName, Password);
 	}
 	
-	public boolean checkAdmin(String UserName,String password) 
+	@GetMapping ("/User/CheckAdmin/{username}/{password}")
+	public boolean checkAdmin(@PathVariable("username") String UserName, @PathVariable("password") String Password) 
 	{
 			if(CurrentUser.currentUser.getAccess() == true) 
 			{
 				return true;
 			}
-			
 		return false;
 	}
 	
