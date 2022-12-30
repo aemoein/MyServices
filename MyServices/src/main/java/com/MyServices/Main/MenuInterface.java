@@ -2,14 +2,14 @@ package com.MyServices.Main;
 
 import java.util.Scanner;
 
-import com.MyServices.Payment.PaymentInterface;
-import com.MyServices.Payment.WalletInterface;
-import com.MyServices.Service.ServiceInterface;
-import com.MyServices.Transaction.RefundInterface;
-import com.MyServices.Transaction.TransactionControl;
-import com.MyServices.Transaction.TransactionInterface;
-import com.MyServices.User.CurrentUser;
-import com.MyServices.User.UserControl;
+import com.MyServices.Main.Payment.PaymentInterface;
+import com.MyServices.Main.Payment.WalletInterface;
+import com.MyServices.Main.Service.ServiceInterface;
+import com.MyServices.Main.Transaction.RefundInterface;
+import com.MyServices.Main.Transaction.TransactionControl;
+import com.MyServices.Main.Transaction.TransactionInterface;
+import com.MyServices.Main.User.CurrentUser;
+import com.MyServices.Main.User.UserControl;
 
 public class MenuInterface {
 

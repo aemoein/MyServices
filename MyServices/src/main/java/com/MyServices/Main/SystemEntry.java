@@ -1,8 +1,8 @@
 package com.MyServices.Main;
 
 import java.util.Scanner;
-import com.MyServices.User.LoginForm;
-import com.MyServices.User.SignupForm;
+import com.MyServices.Main.User.LoginForm;
+import com.MyServices.Main.User.SignupForm;
 
 public class SystemEntry
 {
