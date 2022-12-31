@@ -19,22 +19,21 @@ public class PaymentInterface extends PaymentControl
 		System.out.println("PAYMENT FORM");
 		System.out.println();
 		
-		getBill(payment);
+		int amount = getBill(payment.getUID(), payment.getServiceName(), payment.getAmount());
 		
 		System.out.println();
 		System.out.print("SERVICE NAME: ");
 		System.out.println(payment.getServiceName());
 		
 		System.out.print("AMOUNT: $");
-		System.out.println(payment.getAmount());
-		
-		
+		System.out.println(amount);
 		
 		do 
 		{
 			System.out.println();
 			System.out.println("1- PROCEED TO PAYMENT");
 			System.out.println("2- CANCEL AND RETURN TO MAIN MENU");
+			
 			switch (Input.inputInt(scanner)) 
 			{
 				case 1: 
@@ -52,19 +51,19 @@ public class PaymentInterface extends PaymentControl
 						{
 							case 1: 
 							{
-								CashPayment(payment);
+								CashPayment(amount);
 								flag = false;
 								break;
 							}
 							case 2: 
 							{
-								CreditCardPayment(payment);
+								CreditCardPayment(amount);
 								flag = false;
 								break;
 							}
 							case 3: 
 							{
-								if (WalletPayment(payment))
+								if (WalletPayment(amount))
 								{
 									flag = false;
 								}
@@ -74,9 +73,9 @@ public class PaymentInterface extends PaymentControl
 								System.out.println("PLEASE ENTER A VALID OPTION");
 								break;
 						}
-					}while(flag);
+					}	while(flag);
 					
-					createTransaction(payment);
+					createTransaction(payment.getUID(), payment.getServiceName(), amount);
 					
 					System.out.println();
 					System.out.println("1- RETURN TO MAIN MENU");

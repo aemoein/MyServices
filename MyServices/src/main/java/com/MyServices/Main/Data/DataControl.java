@@ -10,88 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.MyServices.Main.Payment.Wallet;
 import com.MyServices.Main.Transaction.ITransaction;
-import com.MyServices.Main.Transaction.PaymentTransaction;
 import com.MyServices.Main.Transaction.Refund;
 import com.MyServices.Main.User.CurrentUser;
-import com.MyServices.Main.User.User;
-import com.MyServices.Main.User.UserCounter;
 
 @RestController
 public class DataControl 
 {
 	Data data = Data.getInstance();
-	
-	@GetMapping("/Data/Display/User/{id}")
-	public User DisplayAllUsersTest(@PathVariable("id") int UID)
-	{
-		User temUser;
-		Iterator<User> itr = data.getUsers().iterator();
-		while (itr.hasNext()) 
-		{
-			temUser = itr.next();
-			if (temUser.getUserID() == UID)
-			{
-				return itr.next();
-			}
-		}
-		return null;
-	}
-	
-	@GetMapping("/Data/Display/AllUsers")
-	public void DisplayAllUsers()
-	{
-		Iterator<User> itr = data.getUsers().iterator();
-		while (itr.hasNext()) 
-		{
-			System.out.println();
-			itr.next().display();
-			System.out.println();
-		}
-	}
-	
-	@GetMapping("/Data/Display/Transactions")
-	public void DisplayAllTransactions()
-	{
-		System.out.println();
-		if ( data.getTransactions().isEmpty())
-		{
-			System.out.println("NO TRANSACTIONS AVALIABLE");
-		}
-		
-		else
-		{
-			System.out.println("userId"+"\t"+"TransactionID"+"\t"+"Service"+"\t\t\t\t"+"$"+"amount"+"\t\t"+"type");
-			Iterator<ITransaction> itr = data.getTransactions().iterator();
-			ITransaction transaction;
-			while(itr.hasNext())
-			{   transaction = itr.next();
-				transaction.printTransaction();
-			}
-		}
-		System.out.println();
-	}
-	
-	@GetMapping("/Data/Display/PaymentTransactions")
-	public void DisplayPaymentTransactions()
-	{
-		System.out.println();
-		if ( data.getPayTransactions().isEmpty())
-		{
-			System.out.println("NO TRANSACTIONS AVALIABLE");
-		}
-		
-		else
-		{
-			System.out.println("userId"+"\t"+"TransactionID"+"\t"+"Service"+"\t\t\t"+"$"+"amount"+"\t"+"type");
-			Iterator<ITransaction> itr = data.getPayTransactions().iterator();
-			ITransaction transaction;
-			while(itr.hasNext())
-			{   transaction = itr.next();
-				transaction.printTransaction();
-			}
-		}
-		System.out.println();
-	}
 	
 	@GetMapping("/Data/Display/DiscountedService")
 	public void DisplayDiscountedServices()
@@ -213,77 +138,6 @@ public class DataControl
 		data.getDiscountedUsers().add(id);
 	}
 	
-	@GetMapping("/Data/Check/User/SignUp")
-	public boolean checkUserSignUP(@RequestBody User User) 
-	{
-		if(UserCounter.UserCounter == 1)
-		{
-			return true;
-		}
-		
-		else 
-		{
-			Iterator<User> i = data.getUsers().iterator();
-			while (i.hasNext()) 
-			{
-				User tempUser = i.next();
-				if(tempUser.getEmail() == User.getEmail()) {
-					System.out.println("Sorry this email is already taken :("+"\n");
-					return false;
-				}
-				
-				if(tempUser.getUserName() == User.getUserName()) {
-					System.out.println("Sorry this username is already taken :("+"\n");
-					return false;	
-				}
-			}
-		}
-		return true;
-	}
-	
-	@PostMapping("/Data/Add/Wallet")
-	public void createwallet(@RequestBody int UID)
-	{
-		Wallet wallet = new Wallet(UID, 0);
-		data.getWallets().add(wallet);
-	}
-	
-	@PostMapping("/Data/Add/User")
-	public void RegisterUser(@RequestBody User User) 
-	{
-		if(checkUserSignUP(User)) 
-		{
-			data.getUsers().add(User);
-			createwallet(User.getUserID());
-		}
-	}
-	
-	@GetMapping("/Data/Check/User/Login/{username}/{password}")
-	public boolean checkUserLoggedIN(@PathVariable("username") String UserName, @PathVariable("password") String Password) 
-	{
-		User tempUser;
-			Iterator<User> i = data.getUsers().iterator();
-			while (i.hasNext()) 
-			{
-				tempUser = i.next();
-				String CurrentUserName = tempUser.getUserName();
-				String CurrPassword = tempUser.getpassword();
-				String CurrEmail = tempUser.getEmail();
-				
-				if(CurrentUserName.equals(UserName) || CurrEmail.equals(UserName))
-				{
-					if (Password.equals(CurrPassword))
-					{
-						CurrentUser.currentUser = tempUser; 
-						return true;
-					}
-				}	
-			}
-		System.out.println("The Username/Email or password is incorrect..");
-		return false;
-	}
-	
-	
 	@PostMapping ("/Data/Display/PendingRefundRequest")
 	public Refund getPendingRefund()
 	{
@@ -302,12 +156,6 @@ public class DataControl
 		return null;
 	}
 	
-	@PostMapping("/Data/Add/Transaction")
-	public void SaveTranscation(@RequestBody ITransaction transaction)
-	{
-		data.getTransactions().add(transaction);
-	}
-	
 	@GetMapping("/Data/Display/PendingRefund/{id}")
 	public ITransaction getTransaction(@PathVariable("id") int id)
 	{
@@ -321,61 +169,6 @@ public class DataControl
 			}
 		}
 		return null;
-	}
-	
-	@GetMapping("/Data/Display/UserTransactions")
-	public void getUserTransactions()
-	{
-		if ( data.getTransactions().isEmpty())
-		{
-			System.out.println("NO TRANSACTIONS AVALIABLE");
-		}
-		
-		else
-		{
-			System.out.println();
-			System.out.println("userId"+"\t"+"TransactionID"+"\t"+"Service"+"\t\t\t\t"+"Amount"+"\t"+"Type");
-			Iterator<ITransaction> itr = data.getTransactions().iterator();
-			ITransaction transaction;
-			while(itr.hasNext())
-			{   transaction = itr.next();
-				if(transaction.getUID() == CurrentUser.currentUser.getUserID())
-				{
-					transaction.printTransaction();
-				}
-			}
-		}
-	}
-	
-	@PostMapping("/Data/Add/PaymentTransaction")
-	public void newPaymentTransaction(@RequestBody String service, @RequestBody int amount)
-	{
-		ITransaction transaction = new PaymentTransaction(CurrentUser.currentUser.getUserID(), service, amount);
-		SaveTranscation(transaction);
-		data.getPayTransactions().add(transaction);
-	}
-	
-	@GetMapping("/Data/Display/UserPayTransactions")
-	public void getUserPayTransactions()
-	{
-		if ( data.getPayTransactions().isEmpty())
-		{
-			System.out.println("NO TRANSACTIONS AVALIABLE");
-		}
-		
-		else
-		{
-			System.out.println("userId"+"\t"+"TransactionID"+"\t"+"Service"+"\t\t\t\t"+"Amount"+"\t"+"Type");
-			Iterator<ITransaction> itr = data.getPayTransactions().iterator();
-			ITransaction transaction;
-			while(itr.hasNext())
-			{   transaction = itr.next();
-				if(transaction.getUID() == CurrentUser.currentUser.getUserID())
-				{
-					transaction.printTransaction();
-				}
-			}
-		}
 	}
 	
 	@GetMapping("/Data/Display/UserRefund")

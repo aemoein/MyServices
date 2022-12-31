@@ -6,17 +6,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.MyServices.Main.Data.DataControl;
+import com.MyServices.Main.Data.UserDataControl;
 
 @RestController
 public class UserControl {
 	
 	DataControl dataControl = new DataControl();
+	UserDataControl userDataControl = new UserDataControl();
 	
 	//here we build the user from the sign up form.
 	private iUserBuilder user;
-	private String FirstName,LastName,
-		UserName,Email,password,
-		PhoneNumber;
+	private String FirstName, LastName, UserName, Email, password, PhoneNumber;
 	private char gender;
 	
 	public User getUser() 
@@ -24,6 +24,11 @@ public class UserControl {
 		return user.getUser();
 	}
 	
+	@PostMapping("/User/CurrentUser/{id}")
+	public void SetCurrentUser(@PathVariable("id") int UID)
+	{
+		CurrentUser.currentUser = userDataControl.getUser(UID);
+	}
 	
 	//this function sets the user superuser or normal user.  
 	public void SetUser(iUserBuilder user) 
@@ -59,14 +64,14 @@ public class UserControl {
 	@PostMapping ("/User/Register")
 	public void RegisterUser(User User) 
 	{
-		dataControl.RegisterUser(User);
+		userDataControl.RegisterUser(User);
 	}
 	
 	// These functions will be used in the log-in form
 	@GetMapping ("/User/Check/{username}/{password}")
 	public boolean checkUserLoggedIN(@PathVariable("username") String UserName,@PathVariable("password") String Password) 
 	{
-		return dataControl.checkUserLoggedIN(UserName, Password);
+		return userDataControl.checkUserLoggedIN(UserName, Password);
 	}
 	
 	@GetMapping ("/User/CheckAdmin/{username}/{password}")
@@ -78,5 +83,4 @@ public class UserControl {
 			}
 		return false;
 	}
-	
 }

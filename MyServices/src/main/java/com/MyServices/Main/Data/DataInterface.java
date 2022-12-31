@@ -4,8 +4,11 @@ import java.util.Scanner;
 
 import com.MyServices.Main.Input;
 
-public class DataInterface extends DataControl
+public class DataInterface
 {
+	private DataControl dataControl = new DataControl();
+	TransactionDataControl tDataControl = new TransactionDataControl();
+	UserDataControl uDataControl = new UserDataControl();
 	boolean flag = true;
 	Scanner scanner = new Scanner(System.in);
 	public void DataForm()
@@ -26,37 +29,37 @@ public class DataInterface extends DataControl
 			{
 				case 1: 
 				{
-					DisplayAllUsers();
+					uDataControl.DisplayAllUsers();
 					break;
 				}
 				
 				case 2: 
 				{
-					DisplayAllTransactions();
+					tDataControl.DisplayAllTransactions();
 					break;
 				}
 				
 				case 3: 
 				{
-					DisplayPaymentTransactions();
+					tDataControl.DisplayPaymentTransactions();
 					break;
 				}
 				
 				case 4: 
 				{
-					DisplayDiscountedServices();
+					dataControl.DisplayDiscountedServices();
 					break;
 				}
 				
 				case 5: 
 				{
-					DisplayDiscountedUsers();
+					dataControl.DisplayDiscountedUsers();
 					break;
 				}
 				
 				case 6: 
 				{
-					DisplayAllRefundRequests();
+					dataControl.DisplayAllRefundRequests();
 					break;
 				}
 				

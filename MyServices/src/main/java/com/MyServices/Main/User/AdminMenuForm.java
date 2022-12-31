@@ -36,7 +36,7 @@ public class AdminMenuForm extends AdminControl
 					}
 					case 2: 
 					{
-						DisplayAllAvaliableServices();
+						System.out.println(DisplayAllAvaliableServices());
 						AddServiceDiscount(Input.inputInt(scanner));
 						break;
 					}
@@ -61,6 +61,6 @@ public class AdminMenuForm extends AdminControl
 						break;
 				}
 				
-		}while(flag);
+		} while(flag);
 	}
 }

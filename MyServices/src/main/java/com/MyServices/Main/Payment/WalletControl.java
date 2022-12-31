@@ -1,40 +1,51 @@
 package com.MyServices.Main.Payment;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.MyServices.Main.Data.DataControl;
 import com.MyServices.Main.Transaction.TransactionControl;
 import com.MyServices.Main.User.UserControl;
 
+@RestController
 public class WalletControl {
 	DataControl dataControl = new DataControl();
 	UserControl userControl = new UserControl();
 	TransactionControl transactionControl = new TransactionControl();
 	
-	public Wallet getwallet(int UID)
+	@GetMapping("/Wallet/Get/{id}")
+	public Wallet getwallet(@PathVariable("id") int UID)
 	{
 		return dataControl.getCurrentWallet(UID);
 	}
 	
-	public void addfunds(int UID,int amount)
+	@PostMapping("/Wallet/AddFuds/{id}/{amount}")
+	public String addfunds(@PathVariable("id") int UID, @PathVariable("amount") int amount)
 	{
 		int newAmount = getwallet(UID).getAmount() + amount;
 		getwallet(UID).setAmount(newAmount);
 		transactionControl.newWalletTransaction(amount);
-		System.out.println("New Balance: $"+getwallet(UID).getAmount());
+		return ("New Balance: $" + getwallet(UID).getAmount());
 	}
 	
-	public void refundAmount(int UID, int amount)
+	@PostMapping("/Wallet/Refund/{id}/{amount}")
+	public void refundAmount(@PathVariable("id") int UID, @PathVariable("amount") int amount)
 	{
 		int newAmount = getwallet(UID).getAmount() + amount;
 		getwallet(UID).setAmount(newAmount);
 	}
 	
-	public void getWalletBalance(int UID)
+	@GetMapping("/Wallet/Balance/{id}")
+	public int getWalletBalance(@PathVariable("id") int UID)
 	{
 		Wallet currWallet = getwallet(UID);
-		System.out.println(currWallet.getAmount());
+		return currWallet.getAmount();
 	}
 	
-	public boolean WalletPay(int UID,int amountPaid)
+	@PostMapping("/Wallet/Pay/{id}/{amount}")
+	public boolean WalletPay(@PathVariable("id") int UID, @PathVariable("amount") int amountPaid)
 	{
 		int currAmount =  getwallet(UID).getAmount();
 		if (amountPaid > currAmount)
@@ -42,6 +53,7 @@ public class WalletControl {
 			System.out.println("Insufficient Funds Choose another Method");
 			return false;
 		}
+		
 		else 
 		{
 			currAmount = currAmount - amountPaid;

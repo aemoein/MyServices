@@ -1,11 +1,12 @@
 package com.MyServices.Main.User;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class CurrentUser 
 {
 	public static User currentUser;
+	
+	public CurrentUser() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public void printCurrentUser()
 	{

@@ -6,11 +6,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.MyServices.Main.Data.DataControl;
+import com.MyServices.Main.Data.UserDataControl;
 
 @RestController
 public class AdminControl 
 {
 	DataControl dataControl = new DataControl();
+	UserDataControl userDataControl = new UserDataControl();
 	
 	@GetMapping("/Admin/SelectService/{c}")
 	public String SelectService(@PathVariable("c") int c)
@@ -99,21 +101,21 @@ public class AdminControl
 	@GetMapping("/Admin/Display/AllUsers")
 	public void DisplayAllUsers()
 	{
-		dataControl.DisplayAllUsers();
+		userDataControl.DisplayAllUsers();
 	}
 	
 	@GetMapping("/Admin/Display/AllServices")
-	public void DisplayAllAvaliableServices() 
+	public String DisplayAllAvaliableServices()
 	{
-		System.out.println("1- Etisalat Mobile Recharge");
-		System.out.println("2- Orange Mobile Recharge");
-		System.out.println("3- Vodafone Mobile Recharge");
-		System.out.println("4- We Mobile Recharge");
-		System.out.println("5- Etisalat Internet Payment");
-		System.out.println("6- Orange Internet Payment");
-		System.out.println("7- Vodafone Internet Payment");
-		System.out.println("8- We Internet Payment");
-		System.out.println("9- Monthly Landline Payment");
-		System.out.println("10- Quarterly Landline Payment");
+		return	"1- Etisalat Mobile Recharge" + "\n" +
+				"2- Orange Mobile Recharge" + "\n" +
+				"3- Vodafone Mobile Recharge" +  "\n" +
+				"4- We Mobile Recharge" + "\n" +
+				"5- Etisalat Internet Payment" + "\n" +
+				"6- Orange Internet Payment" + "\n" +
+				"7- Vodafone Internet Payment" + "\n" +
+				"8- We Internet Payment" + "\n" +
+				"9- Monthly Landline Payment" + "\n" +
+				"10- Quarterly Landline Payment" ;
 	}
 }

@@ -10,7 +10,8 @@ import com.MyServices.Main.Transaction.Refund;
 import com.MyServices.Main.User.User;
 
 @Component
-public class Data {
+public class Data 
+{
 	private static Data Instance = null;
 	
 	User user = new User("Ahmed","Elsayed","aemoein@gmail.com","aemoein","1234","01008956099",'m',false);

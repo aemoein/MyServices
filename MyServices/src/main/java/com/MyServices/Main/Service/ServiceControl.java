@@ -1,25 +1,35 @@
 package com.MyServices.Main.Service;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.MyServices.Main.Payment.Payment;
 import com.MyServices.Main.Payment.PaymentControl;
 import com.MyServices.Main.User.CurrentUser;
 
-public class ServiceControl extends PaymentControl
+@RestController
+public class ServiceControl
 {
 	String serviceName;
+	PaymentControl paymentControl = new PaymentControl();
 	int UID, Amount;
 	
+	@GetMapping("/Service/User/ID")
 	public void getCurrentUID()
 	{
 		UID = CurrentUser.currentUser.getUserID();
 	}
 	
-	public Payment ServicePay(int UID, String ServiceName, int amount)
+	@PostMapping("/Service/Pay/{id}/{service}/{amount}")
+	public Payment ServicePay(@PathVariable("id") int UID, @PathVariable("service") String ServiceName, @PathVariable("amount") int amount)
 	{
-		return startPayment(UID, ServiceName, amount);
+		return paymentControl.startPayment(UID, ServiceName, amount);
 	}
 	
-	public Payment MobileRechargeSPMenu(int choice)
+	@PostMapping("/Service/MobileRecharge/{choice}")
+	public Payment MobileRechargeSPMenu(@PathVariable("choice") int choice)
 	{
 		IFactoryServices factoryServices = new MobileRecharge();
 		
@@ -67,7 +77,8 @@ public class ServiceControl extends PaymentControl
 		}
 	}
 	
-	public Payment InternetPaymentSPMenu(int choice)
+	@PostMapping("/Service/InternetPayment/{choice}")
+	public Payment InternetPaymentSPMenu(@PathVariable("choice") int choice)
 	{
 		IFactoryServices factoryServices = new InternetPayment();
 		
@@ -114,7 +125,8 @@ public class ServiceControl extends PaymentControl
 		}
 	}
 	
-	public Payment LandlineSPMenu(int choice)
+	@PostMapping("/Service/Landline/{choice}")
+	public Payment LandlineSPMenu(@PathVariable("choice") int choice)
 	{
 		Landline landline;
 		
@@ -144,7 +156,8 @@ public class ServiceControl extends PaymentControl
 		}
 	}
 	
-	public Payment DonationsSPMenu(int choice)
+	@PostMapping("/Service/Donations/{choice}")
+	public Payment DonationsSPMenu(@PathVariable("choice") int choice)
 	{
 		Donations donations;
 		switch (choice) 
@@ -179,9 +192,5 @@ public class ServiceControl extends PaymentControl
 			default:
 				throw new IllegalArgumentException("Unexpected value: " + choice);
 		}
-	}
-	
-	
-	
-	
+	}	
 }

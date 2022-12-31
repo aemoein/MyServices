@@ -7,15 +7,16 @@ import com.MyServices.Main.User.CurrentUser;
 public class WalletInterface extends WalletControl
 {
 	Scanner scanner = new Scanner(System.in);
+	
 	public void displayAddForm()
 	{
 		System.out.print("Current Balance: $");
-		getWalletBalance(CurrentUser.currentUser.getUserID());
+		System.out.println(getWalletBalance(CurrentUser.currentUser.getUserID()));
 		
 		System.out.print("Add Funds: ");
 		int AddedFunds = scanner.nextInt();
 		
-		addfunds(CurrentUser.currentUser.getUserID() ,AddedFunds);
+		System.out.println(addfunds(CurrentUser.currentUser.getUserID(), AddedFunds));
 		
 		System.out.print("Funds Added Successfully");
 	}
@@ -23,7 +24,7 @@ public class WalletInterface extends WalletControl
 	public void displayCurrentBalance()
 	{
 		System.out.print("Current Wallet Balance: $");
-		getWalletBalance(CurrentUser.currentUser.getUserID());
+		System.out.println(getWalletBalance(CurrentUser.currentUser.getUserID()));
 	}
 	
 	public void walletForm()
@@ -59,6 +60,6 @@ public class WalletInterface extends WalletControl
 					break;
 			}
 			System.out.println();
-		}while(flag);
+		} while(flag);
 	}
 }

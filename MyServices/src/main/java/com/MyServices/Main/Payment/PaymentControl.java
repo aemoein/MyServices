@@ -1,74 +1,98 @@
 package com.MyServices.Main.Payment;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.MyServices.Main.Transaction.TransactionControl;
 
-public class PaymentControl extends Discount{
+@RestController
+public class PaymentControl{
 
+	
 	PaymentMethod paymentMethod;
-	public Payment startPayment(int UID, String service, int amount)
+	Discount discount = new Discount();
+	
+	
+	@PostMapping("/Payment/Start/{id}/{service}/{amount}")
+	public Payment startPayment(@PathVariable("id") int UID, @PathVariable("service") String service, @PathVariable("amount") int amount)
 	{
 		Payment payment = new Payment(UID, service, amount);
 		return payment;
 	}
 	
-	public void getBill(Payment payment)
+	
+	@GetMapping("/Payment/Bill/{id}/{serviceName}/{amount}")
+	public int getBill( @PathVariable("id") int UID, @PathVariable("serviceName") String service, @PathVariable("amount") int amount)
 	{
+		Payment payment = startPayment(UID, service, amount);
 		Bill bill = new ConcreteBill(payment.getServiceName() ,payment.getAmount());
 		
-		if (serviceDiscount(payment.getServiceName()))
+		if (discount.serviceDiscount(payment.getServiceName()))
 		{
 			Bill billSerDisBill = new ServiceDiscount(bill);
 			bill.setAmount(billSerDisBill.getBill());
 			
-			if (overallDiscount(payment.getUID()))
+			if (discount.overallDiscount(payment.getUID()))
 			{
 				Bill billOverallDisBill = new ServiceDiscount(bill);
 				System.out.println("Service & Overall Discount Applied");
-				payment.setAmount(billOverallDisBill.getBill()); 
+				return billOverallDisBill.getBill(); 
 			}
 			else 
 			{
 				System.out.println("Service Discount Applied");
-				payment.setAmount(billSerDisBill.getBill());
+				return billSerDisBill.getBill();
 			}
 		}
 		
-		else if (overallDiscount(payment.getUID()))
+		else if (discount.overallDiscount(payment.getUID()))
 		{
 			Bill billOverallDisBill = new ServiceDiscount(bill);
 			System.out.println("Overall Discount Applied");
-			payment.setAmount(billOverallDisBill.getBill());
+			return billOverallDisBill.getBill();
 		}
 		
 		else 
 		{
 			System.out.println("No Discount Applied");
-			payment.setAmount(bill.getBill());
+			return bill.getBill();
 		}
 	}
 	
-	public void CashPayment(Payment payment)
+	
+	@PostMapping("/Payment/Cash/{amount}")
+	public void CashPayment(int amount)
 	{
 		paymentMethod = new Cash();
-		paymentMethod.pay(payment.getAmount());
+		paymentMethod.pay(amount);
 	}
 	
-	public void CreditCardPayment(Payment payment)
+	
+	@PostMapping("/Payment/Credit/{amount}")
+	public void CreditCardPayment(int amount)
 	{
 		paymentMethod = new Credit_Card();
-		paymentMethod.pay(payment.getAmount());
+		paymentMethod.pay(amount);
 	}
 	
-	public boolean WalletPayment(Payment payment)
+	
+	@PostMapping("/Payment/WalletPay/{amount}")
+	public boolean WalletPayment(int amount)
 	{
 		paymentMethod = new WalletPay();
-		return paymentMethod.pay(payment.getAmount());
+		return paymentMethod.pay(amount);
 	}
 	
-	public void createTransaction(Payment payment)
+	
+	@PostMapping("/Payment/Transaction/{id}/{service}/{amount}")
+	public String createTransaction(@PathVariable("id") int UID, @PathVariable("service") String service, @PathVariable("amount") int amount)
 	{
+		Payment payment = new Payment(UID, service, amount);   //startPayment(UID, service, amount);
 		TransactionControl tControl = new TransactionControl();
 		tControl.newPaymentTransaction(payment.getServiceName(), payment.getAmount());
 		System.out.println("Transaction Completed Successfully");
+		return "Transaction Completed Successfully";
 	}
 }

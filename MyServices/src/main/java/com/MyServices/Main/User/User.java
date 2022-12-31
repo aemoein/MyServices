@@ -2,7 +2,7 @@ package com.MyServices.Main.User;
 
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class User {
 	private String FirstName,LastName,
 	UserName,Email,password,
@@ -39,10 +39,13 @@ public class User {
 		this.PhoneNumber = PhoneNumber;
 		this.gender = gender;
 		this.SuperUserAccess = SuperUserAcsess;
-		UserCounter.UserCounter++;
+		//UserCounter.UserCounter++;
 	}
 	
 	//setters.
+	public void setUserID(int id) {
+		this.UserID = id;
+		}
 	
 	public void setFirstName(String FirstName) {
 	this.FirstName = FirstName;
@@ -148,8 +151,4 @@ public class User {
 		}
 		
 	}
-	
-	
-	
-
 }

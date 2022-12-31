@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class SignupForm 
 {
 	private String FirstName,LastName,
@@ -16,7 +16,8 @@ public class SignupForm
 	Scanner myscanner =  new Scanner(System.in);
 	LoginForm loginForm = new LoginForm();
 	
-	public SignupForm() {
+	public SignupForm() 
+	{
 		UserControl = new UserControl();
 		user = new NormalUser();
 	}
@@ -73,7 +74,7 @@ public class SignupForm
 	}
 	
 	public SignupForm getinfo() 
-	{return this;};
+	{ return this; };
 	
 	public void SignUpUser() 
 	{
@@ -84,7 +85,6 @@ public class SignupForm
 		UserControl.RegisterUser(UserControl.getUser());
 		loginForm.loginUser();
 	}
-	
 	
 	//setters
 		public void setFirstName(String FirstName) {
@@ -114,7 +114,6 @@ public class SignupForm
 		public void setgender(char gender) {
 			this.gender = gender;
 		}
-		
 		
 		//getters.
 		public String getFirstName () {

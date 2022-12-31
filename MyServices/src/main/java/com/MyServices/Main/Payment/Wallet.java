@@ -1,5 +1,6 @@
 package com.MyServices.Main.Payment;
 
+
 public class Wallet {
 	
 	private int UID;

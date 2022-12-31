@@ -60,7 +60,4 @@ private User user;
 		// TODO Auto-generated method stub
 		return this.user;
 	}
-
-
-	
 }
