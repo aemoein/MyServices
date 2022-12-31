@@ -32,10 +32,10 @@ public class PaymentControl{
 		if (discount.serviceDiscount(payment.getServiceName()))
 		{
 			Bill billSerDisBill = new ServiceDiscount(bill);
-			bill.setAmount(billSerDisBill.getBill());
 			
 			if (discount.overallDiscount(payment.getUID()))
 			{
+				bill.setAmount(billSerDisBill.getBill());
 				Bill billOverallDisBill = new ServiceDiscount(bill);
 				System.out.println("Service & Overall Discount Applied");
 				return billOverallDisBill.getBill(); 

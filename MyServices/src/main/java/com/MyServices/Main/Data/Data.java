@@ -2,20 +2,29 @@ package com.MyServices.Main.Data;
 
 import java.util.ArrayList;
 
-import org.springframework.stereotype.Component;
-
 import com.MyServices.Main.Payment.Wallet;
 import com.MyServices.Main.Transaction.ITransaction;
 import com.MyServices.Main.Transaction.Refund;
 import com.MyServices.Main.User.User;
 
-@Component
 public class Data 
 {
 	private static Data Instance = null;
 	
+	User admin = new User("Ahmed","Elsayed","admin@myservice.com","admin","12345","01008956099",'m',true);
+	
 	User user = new User("Ahmed","Elsayed","aemoein@gmail.com","aemoein","1234","01008956099",'m',false);
-	User admin = new User("Ahmed","Elsayed","admin@myservice","admin","12345","01008956099",'m',true);
+	Wallet wallet = new Wallet(user.getUserID(), 0);
+	
+	User user2 = new User("Ahmed","Sami","A.sami@gmail.com","A_Sami","1234","01091497761",'m',false);
+	Wallet wallet2 = new Wallet(user2.getUserID(), 0);
+	
+	User user3 = new User("Abdulrahman","Emad","abdo@gmail.com","theonlyabdo","1234","01018441349",'m',false);
+	Wallet wallet3 = new Wallet(user3.getUserID(), 0);
+	
+	User user4 = new User("Abdullah","Elsayed","absa@gmail.com","abdo123","1234","0563110647",'m',false);
+	Wallet wallet4 = new Wallet(user3.getUserID(), 0);
+	
 	private ArrayList<User> users;
 	private ArrayList <ITransaction> transactions;
 	private ArrayList <Wallet> wallets;
@@ -23,7 +32,8 @@ public class Data
 	private ArrayList <ITransaction> PayTransactions;
 	private ArrayList <String> DiscountedServices;
 	private ArrayList <String> DiscountedUsers;
-	Wallet wallet = new Wallet(user.getUserID(), 0);
+	
+	
 	
 	private Data() 
 	{
@@ -34,9 +44,15 @@ public class Data
 		PayTransactions = new ArrayList<ITransaction>();
 		DiscountedServices = new ArrayList <String>();
 		DiscountedUsers = new ArrayList <String>();
-		users.add(user);
 		users.add(admin);
+		users.add(user);
+		users.add(user2);
+		users.add(user3);
+		users.add(user4);
 		wallets.add(wallet);
+		wallets.add(wallet2);
+		wallets.add(wallet3);
+		wallets.add(wallet4);
 	}
 	
 	public ArrayList<String> getDiscountedUsers() {

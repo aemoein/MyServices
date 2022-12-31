@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 public class SignupForm 
 {
 	private String FirstName,LastName,

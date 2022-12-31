@@ -38,13 +38,17 @@ public class UserDataControl
 	@GetMapping("/Data/Display/AllUsers")
 	public void DisplayAllUsers()
 	{
+		System.out.println();
+		System.out.println("User ID" + "\t\t" + "Full Name" + "\t\t" + "Email" + "\t\t\t" + "User Name" + "\t\t" + "Phone Number" + "\t\t" + "Gender" + "\t\t" + "Status");
+		
 		Iterator<User> itr = data.getUsers().iterator();
 		while (itr.hasNext()) 
 		{
-			System.out.println();
-			itr.next().display();
-			System.out.println();
+			
+			itr.next().Print();
 		}
+		
+		System.out.println();
 	}
 	
 	@GetMapping("/Data/Check/User/SignUp")

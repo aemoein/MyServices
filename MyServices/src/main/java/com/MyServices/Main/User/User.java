@@ -1,7 +1,5 @@
 package com.MyServices.Main.User;
 
-import org.springframework.stereotype.Component;
-
 //@Component
 public class User {
 	private String FirstName,LastName,
@@ -39,7 +37,7 @@ public class User {
 		this.PhoneNumber = PhoneNumber;
 		this.gender = gender;
 		this.SuperUserAccess = SuperUserAcsess;
-		//UserCounter.UserCounter++;
+		UserCounter.UserCounter++;
 	}
 	
 	//setters.
@@ -150,5 +148,30 @@ public class User {
 			System.out.println("Status:\t\t " + Status);
 		}
 		
+	}
+	
+	public void Print() 
+	{			
+		String Gender = "m", Status = "User";
+		
+		if(gender == 'm')
+		{
+			Gender = "Male";
+		}
+		else if (gender == 'f')
+		{
+			Gender = "Female";
+		}
+		
+		if(SuperUserAccess == true)
+		{
+			Status = "Admin";
+		}
+		else if (SuperUserAccess == false)
+		{
+			Status = "User";
+		}
+		
+		System.out.println(UserID + "\t\t" + FirstName + " " + LastName + "\t\t" + Email + "\t\t" + UserName + "\t\t" + PhoneNumber + "\t\t" + Gender + "\t\t" + Status);
 	}
 }
