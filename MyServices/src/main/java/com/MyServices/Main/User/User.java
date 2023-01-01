@@ -150,7 +150,7 @@ public class User {
 		
 	}
 	
-	public void Print() 
+	public String Print() 
 	{			
 		String Gender = "m", Status = "User";
 		
@@ -172,6 +172,6 @@ public class User {
 			Status = "User";
 		}
 		
-		System.out.println(UserID + "\t\t" + FirstName + " " + LastName + "\t\t" + Email + "\t\t" + UserName + "\t\t" + PhoneNumber + "\t\t" + Gender + "\t\t" + Status);
+		return (UserID + "\t\t" + FirstName + " " + LastName + "\t\t" + Email + "\t\t" + UserName + "\t\t" + PhoneNumber + "\t\t" + Gender + "\t\t" + Status);
 	}
 }

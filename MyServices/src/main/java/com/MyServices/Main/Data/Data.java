@@ -19,7 +19,7 @@ public class Data
 	User user2 = new User("Ahmed","Sami","A.sami@gmail.com","A_Sami","1234","01091497761",'m',false);
 	Wallet wallet2 = new Wallet(user2.getUserID(), 0);
 	
-	User user3 = new User("Abdulrahman","Emad","abdo@gmail.com","theonlyabdo","1234","01018441349",'m',false);
+	User user3 = new User("Abdulrahman","Emad","abdo@gmail.com","onlyabdo","1234","01018441349",'m',false);
 	Wallet wallet3 = new Wallet(user3.getUserID(), 0);
 	
 	User user4 = new User("Abdullah","Elsayed","absa@gmail.com","abdo123","1234","0563110647",'m',false);
@@ -32,8 +32,7 @@ public class Data
 	private ArrayList <ITransaction> PayTransactions;
 	private ArrayList <String> DiscountedServices;
 	private ArrayList <String> DiscountedUsers;
-	
-	
+	private ArrayList <String> AvaliableServices;
 	
 	private Data() 
 	{
@@ -44,17 +43,19 @@ public class Data
 		PayTransactions = new ArrayList<ITransaction>();
 		DiscountedServices = new ArrayList <String>();
 		DiscountedUsers = new ArrayList <String>();
-		users.add(admin);
-		users.add(user);
-		users.add(user2);
-		users.add(user3);
-		users.add(user4);
-		wallets.add(wallet);
-		wallets.add(wallet2);
-		wallets.add(wallet3);
-		wallets.add(wallet4);
+		AvaliableServices = new ArrayList <String>();
+		
+		setIntialData();
 	}
 	
+	public ArrayList<String> getAvaliableServices() {
+		return AvaliableServices;
+	}
+
+	public void setAvaliableServices(ArrayList<String> avaliableServices) {
+		AvaliableServices = avaliableServices;
+	}
+
 	public ArrayList<String> getDiscountedUsers() {
 		return DiscountedUsers;
 	}
@@ -119,5 +120,29 @@ public class Data
 
 	public void setRefundRequest(ArrayList<Refund> refundRequest) {
 		this.refundRequest = refundRequest;
+	}
+	
+	public void setIntialData()
+	{
+		AvaliableServices.add("1- Etisalat Mobile Recharge");
+		AvaliableServices.add("2- Orange Mobile Recharge");
+		AvaliableServices.add("3- Vodafone Mobile Recharge");
+		AvaliableServices.add("4- We Mobile Recharge");
+		AvaliableServices.add("5- Etisalat Internet Payment");
+		AvaliableServices.add("6- Orange Internet Payment");
+		AvaliableServices.add("7- Vodafone Internet Payment");
+		AvaliableServices.add("8- We Internet Payment");
+		AvaliableServices.add("9- Monthly Landline Payment");
+		AvaliableServices.add("10- Quarterly Landline Payment");
+		
+		users.add(admin);
+		users.add(user);
+		users.add(user2);
+		users.add(user3);
+		users.add(user4);
+		wallets.add(wallet);
+		wallets.add(wallet2);
+		wallets.add(wallet3);
+		wallets.add(wallet4);
 	}
 }

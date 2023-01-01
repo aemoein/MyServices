@@ -2,6 +2,7 @@ package com.MyServices.Main;
 
 import java.util.Scanner;
 
+import com.MyServices.Main.Data.DataControl;
 import com.MyServices.Main.Payment.PaymentInterface;
 import com.MyServices.Main.Payment.WalletInterface;
 import com.MyServices.Main.Service.ServiceInterface;
@@ -22,7 +23,10 @@ public class MenuInterface {
 	WalletInterface walletInterface = new WalletInterface();
 	UserControl userControl = new UserControl();
 	SystemEntry systemEntry = new SystemEntry();
+	DataControl dataControl = new DataControl();
+	
 	Scanner scanner = new Scanner(System.in);
+	Scanner scanner2 = new Scanner(System.in);
 	boolean menuflag = true;
 	
 
@@ -37,10 +41,12 @@ public class MenuInterface {
 		System.out.println("HOW CAN WE HELP YOU TODAY?");
 		System.out.println("1- Services");
 		System.out.println("2- Refunds");
-		System.out.println("3- Transactions");
-		System.out.println("4- View Account");
-		System.out.println("5- Wallet Options");
-		System.out.println("6- EXIT");
+		System.out.println("3- Service Search");
+		System.out.println("4- Display Discounted Services");
+		System.out.println("5- Transactions");
+		System.out.println("6- View Account");
+		System.out.println("7- Wallet Options");
+		System.out.println("8- EXIT");
 		
 		switch (Input.inputInt(scanner)) 
 		{
@@ -59,11 +65,28 @@ public class MenuInterface {
 			
 			case 3: 
 			{
-				transactionInterface.getUserTransactions();
+				String lineString;
+				System.out.println();
+				System.out.println("Search For Service");
+				System.out.print("Enter Search: ");
+				lineString = scanner2.nextLine();
+				dataControl.ServiceSearch(lineString);
 				break;
 			}
 			
 			case 4: 
+			{
+				dataControl.DisplayDiscountedServices();
+				break;
+			}
+			
+			case 5: 
+			{
+				transactionInterface.getUserTransactions();
+				break;
+			}
+			
+			case 6: 
 			{
 				System.out.println();
 				currentUser.printCurrentUser();
@@ -71,18 +94,18 @@ public class MenuInterface {
 				break;
 			}
 			
-			case 5: 
+			case 7: 
 			{
 				walletInterface.walletForm();
 				break;
 			}
-			case 6: 
+			
+			case 8: 
 			{
 				menuflag = false;
 				systemEntry.SystemStart();
 				break;
 			}
-			
 			
 			default:
 				System.out.println("PLEASE ENTER A VALID OPTION");

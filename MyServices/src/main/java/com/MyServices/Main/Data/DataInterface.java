@@ -15,6 +15,7 @@ public class DataInterface
 	{
 		do 
 		{
+			System.out.println();
 			System.out.println("--- Data Display Menu ---");
 			System.out.println("Choose an option");
 			System.out.println("1- View All Users");
@@ -23,7 +24,8 @@ public class DataInterface
 			System.out.println("4- View Discounted Service");
 			System.out.println("5- View Users With Discount");
 			System.out.println("6- View All Refund Requests");
-			System.out.println("7- Exit");
+			System.out.println("7- Display All Service");
+			System.out.println("8- Exit");
 			
 			switch (Input.inputInt(scanner)) 
 			{
@@ -63,7 +65,13 @@ public class DataInterface
 					break;
 				}
 				
-				case 7:
+				case 7: 
+				{
+					dataControl.DisplayAllServices();
+					break;
+				}
+				
+				case 8:
 				{
 					flag = false;
 					break;

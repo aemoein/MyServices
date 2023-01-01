@@ -45,7 +45,7 @@ public class UserDataControl
 		while (itr.hasNext()) 
 		{
 			
-			itr.next().Print();
+			System.out.println(itr.next().Print());
 		}
 		
 		System.out.println();

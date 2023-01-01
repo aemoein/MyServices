@@ -17,6 +17,7 @@ import com.MyServices.Main.User.CurrentUser;
 public class DataControl 
 {
 	Data data = Data.getInstance();
+	UserDataControl userDataControl = new UserDataControl();
 	
 	@GetMapping("/Data/Display/DiscountedService")
 	public void DisplayDiscountedServices()
@@ -49,11 +50,13 @@ public class DataControl
 		}
 		else 
 		{
+			System.out.println("User ID" + "\t\t" + "Full Name" + "\t\t" + "Email" + "\t\t\t" + "User Name" + "\t\t" + "Phone Number" + "\t\t" + "Gender" + "\t\t" + "Status");
 			Iterator<String> itr = data.getDiscountedUsers().iterator();
 			while(itr.hasNext())
 			{
 				int UID = Integer.parseInt(itr.next());
-				System.out.println(UID);
+				userDataControl.getUser(UID).Print();
+				System.out.println(userDataControl.getUser(UID).Print());
 			}
 		}
 		System.out.println();
@@ -191,5 +194,33 @@ public class DataControl
 	{
 		Refund refund = new Refund(refundTransaction);
 		data.getRefundRequest().add(refund);
+	}
+	
+	@GetMapping("/Data/Service/Search/{Service}")
+	public void ServiceSearch(@PathVariable("Service") String ServiceName)
+	{
+		String ServiceN;
+		Iterator<String> itr = data.getAvaliableServices().iterator();
+		while(itr.hasNext())
+		{
+			ServiceN = itr.next();
+			if(ServiceN.contains(ServiceName))
+			{
+				
+				System.out.println(ServiceN);
+			}
+		}
+		System.out.println();
+	}
+	
+	@GetMapping("/Data/Service/Display")
+	public void DisplayAllServices()
+	{
+		Iterator<String> itr = data.getAvaliableServices().iterator();
+		while(itr.hasNext())
+		{	
+			System.out.println(itr.next());
+		}
+		System.out.println();
 	}
 }
