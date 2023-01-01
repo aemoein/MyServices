@@ -63,7 +63,7 @@ public class PaymentControl{
 	
 	
 	@PostMapping("/Payment/Cash/{amount}")
-	public void CashPayment(int amount)
+	public void CashPayment(@PathVariable("amount") int amount)
 	{
 		paymentMethod = new Cash();
 		paymentMethod.pay(amount);
@@ -71,7 +71,7 @@ public class PaymentControl{
 	
 	
 	@PostMapping("/Payment/Credit/{amount}")
-	public void CreditCardPayment(int amount)
+	public void CreditCardPayment(@PathVariable("amount") int amount)
 	{
 		paymentMethod = new Credit_Card();
 		paymentMethod.pay(amount);
@@ -79,7 +79,7 @@ public class PaymentControl{
 	
 	
 	@PostMapping("/Payment/WalletPay/{amount}")
-	public boolean WalletPayment(int amount)
+	public boolean WalletPayment(@PathVariable("amount") int amount)
 	{
 		paymentMethod = new WalletPay();
 		return paymentMethod.pay(amount);

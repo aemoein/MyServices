@@ -3,6 +3,7 @@ package com.MyServices.Main.Data;
 import java.util.Iterator;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,7 +32,8 @@ public class TransactionDataControl
 			Iterator<ITransaction> itr = data.getTransactions().iterator();
 			ITransaction transaction;
 			while(itr.hasNext())
-			{   transaction = itr.next();
+			{   
+				transaction = itr.next();
 				transaction.printTransaction();
 			}
 		}
@@ -90,12 +92,13 @@ public class TransactionDataControl
 		}
 	}
 	
-	@PostMapping("/Data/Add/PaymentTransaction")
-	public void newPaymentTransaction(@RequestBody String service, @RequestBody int amount)
+	@PostMapping("/Data/Add/PaymentTransaction/{service}/{amount}")
+	public ITransaction newPaymentTransaction(@PathVariable("service") String service, @PathVariable("amount") int amount)
 	{
 		ITransaction transaction = new PaymentTransaction(CurrentUser.currentUser.getUserID(), service, amount);
 		SaveTranscation(transaction);
 		data.getPayTransactions().add(transaction);
+		return transaction;
 	}
 	
 	@GetMapping("/Data/Display/UserPayTransactions")

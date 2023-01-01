@@ -74,6 +74,4 @@ public class TransactionControl {
 	{
 		tDataControl.getUserPayTransactions();
 	}
-	
-	
 }
