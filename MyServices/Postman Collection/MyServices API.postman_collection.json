@@ -1,0 +1,1412 @@
+{
+	"info": {
+		"_postman_id": "c3a1b2d0-af56-4fac-b436-96220e88088f",
+		"name": "MyServices API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25121317"
+	},
+	"item": [
+		{
+			"name": "Data Component API",
+			"item": [
+				{
+					"name": "Display User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Data/Display/User/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Data",
+								"Display",
+								"User",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Display All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Data/Display/AllUsers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Data",
+								"Display",
+								"AllUsers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Display All Transactions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Data/Display/Transactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Data",
+								"Display",
+								"Transactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Display All Payment Transactions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Data/Display/PaymentTransactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Data",
+								"Display",
+								"PaymentTransactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Display Discounted Services",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Data/Display/DiscountedService",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Data",
+								"Display",
+								"DiscountedService"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Display Users With Discount",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Data/Display/DiscountedUsers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Data",
+								"Display",
+								"DiscountedUsers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Display Refund Requests",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Data/Display/RefundRequests",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Data",
+								"Display",
+								"RefundRequests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check User Discount",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Data/Check/OverallDisount/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Data",
+								"Check",
+								"OverallDisount",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Service Discount",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Data/Check/ServiceDisount/Vodafone Mobile Recharge",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Data",
+								"Check",
+								"ServiceDisount",
+								"Vodafone Mobile Recharge"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Wallet",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Data/Wallet/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Data",
+								"Wallet",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Service Discount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Data/Add/ServiceDiscount/We Mobile Recharge",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Data",
+								"Add",
+								"ServiceDiscount",
+								"We Mobile Recharge"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add User Discount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Data/Add/UserDisount/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Data",
+								"Add",
+								"UserDisount",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check User Registration",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"1234\",\n    \"gender\": \"m\",\n    \"access\": false,\n    \"userID\": 6,\n    \"email\": \"yousef@gmail.com\",\n    \"userName\": \"joeBoy\",\n    \"firstName\": \"Yousef\",\n    \"phoneNumber\": \"01101976124\",\n    \"lasstName\": \"Ahmed\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/Data/Check/User/SignUp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Data",
+								"Check",
+								"User",
+								"SignUp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Wallet To User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Data/Add/Wallet",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Data",
+								"Add",
+								"Wallet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register A User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"1234\",\n    \"gender\": \"f\",\n    \"access\": false,\n    \"userID\": 7,\n    \"email\": \"soha@gmail.com\",\n    \"userName\": \"soha\",\n    \"firstName\": \"Soha\",\n    \"phoneNumber\": \"01101976124\",\n    \"lastName\": \"Makady\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/Data/Add/User",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Data",
+								"Add",
+								"User"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check User Login",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Data/Check/User/Login/aemoein/1234",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Data",
+								"Check",
+								"User",
+								"Login",
+								"aemoein",
+								"1234"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Display Pending Refund Requests",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Data/Display/PendingRefundRequest",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Data",
+								"Display",
+								"PendingRefundRequest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add A Transaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/Data/Add/Transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Data",
+								"Add",
+								"Transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Display User Refund Requests",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Data/Display/PendingRefund/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Data",
+								"Display",
+								"PendingRefund",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Display User Transactions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Data/Display/UserTransactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Data",
+								"Display",
+								"UserTransactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add A Payment Transaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Data/Add/PaymentTransaction/Vodafone Mobile Recharge/120",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Data",
+								"Add",
+								"PaymentTransaction",
+								"Vodafone Mobile Recharge",
+								"120"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Display User Payment Transactions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Data/Display/UserPayTransactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Data",
+								"Display",
+								"UserPayTransactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Display User Refund Requests",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Data/Display/UserRefund",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Data",
+								"Display",
+								"UserRefund"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Refund Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://http://localhost:8080/Data/Add/Refund",
+							"protocol": "http",
+							"host": [
+								"http"
+							],
+							"port": "",
+							"path": [
+								"",
+								"localhost:8080",
+								"Data",
+								"Add",
+								"Refund"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search for a Service",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Data/Service/Search/We",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Data",
+								"Service",
+								"Search",
+								"We"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Display All Available Service",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Data/Service/Display",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Data",
+								"Service",
+								"Display"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Component API",
+			"item": [
+				{
+					"name": "Select A Service (Admin)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Admin/SelectService/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Admin",
+								"SelectService",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Service Discount (Admin)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Admin/Add/ServiceDiscount/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Admin",
+								"Add",
+								"ServiceDiscount",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add User Discount (Admin)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Admin/Add/UserDiscount/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Admin",
+								"Add",
+								"UserDiscount",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Display All Users (Admin)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Admin/Display/AllUsers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Admin",
+								"Display",
+								"AllUsers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Display All Available Services (Admin)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Admin/Display/AllServices",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Admin",
+								"Display",
+								"AllServices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Build User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/User/Build",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"User",
+								"Build"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register A User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"1234\",\n    \"gender\": \"m\",\n    \"access\": false,\n    \"userID\": 8,\n    \"email\": \"10445@gmail.com\",\n    \"userName\": \"Messi10\",\n    \"firstName\": \"Lionel\",\n    \"phoneNumber\": \"01010101010101\",\n    \"lastName\": \"Messi\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/User/Register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"User",
+								"Register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check If User Exists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/User/Check/aemoein/1234",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"User",
+								"Check",
+								"aemoein",
+								"1234"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check If The User Is Admin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/User/CheckAdmin/admin/12345",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"User",
+								"CheckAdmin",
+								"admin",
+								"12345"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set User As Current User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/User/CurrentUser/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"User",
+								"CurrentUser",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payment Component API",
+			"item": [
+				{
+					"name": "Get User Wallet",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Wallet/Get/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Wallet",
+								"Get",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Funds To Wallet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Wallet/AddFuds/3/100",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Wallet",
+								"AddFuds",
+								"3",
+								"100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Refund to Wallet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Wallet/Refund/3/500",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Wallet",
+								"Refund",
+								"3",
+								"500"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Display Wallet Balance",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Wallet/Balance/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Wallet",
+								"Balance",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pay Using Wallet",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Wallet/Pay/3/100",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Wallet",
+								"Pay",
+								"3",
+								"100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Start Payment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Payment/Start/3/Vodafone Mobile Recharge/400",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Payment",
+								"Start",
+								"3",
+								"Vodafone Mobile Recharge",
+								"400"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Bill With The Discount",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Payment/Bill/4/Vodafone Mobile Recharge/400",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Payment",
+								"Bill",
+								"4",
+								"Vodafone Mobile Recharge",
+								"400"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pay Using Cash",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Payment/Cash/300",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Payment",
+								"Cash",
+								"300"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pay Using Credit Card",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Payment/Credit/300",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Payment",
+								"Credit",
+								"300"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pay Using Wallet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Payment/Wallet/300",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Payment",
+								"Wallet",
+								"300"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create A Transaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Payment/Transaction/3/Vodafone Mobile Recharge/100",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Payment",
+								"Transaction",
+								"3",
+								"Vodafone Mobile Recharge",
+								"100"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Service Component API",
+			"item": [
+				{
+					"name": "Get The Current User ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Service/User/ID",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Service",
+								"User",
+								"ID"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pay for Services",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Service/Pay/1/Vodafone Mobile Recharge/100",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Service",
+								"Pay",
+								"1",
+								"Vodafone Mobile Recharge",
+								"100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mobile Recharge Service",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Service/MobileRecharge/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Service",
+								"MobileRecharge",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Internet Payment Service",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Service/InternetPayment/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Service",
+								"InternetPayment",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Landline Service",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Service/Landline/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Service",
+								"Landline",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Donations Service",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Service/Donations/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Service",
+								"Donations",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transaction Component API",
+			"item": [
+				{
+					"name": "Get User ID for Transaction",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Transaction/GetUID",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Transaction",
+								"GetUID"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Print the Transaction",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Transaction/Print",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Transaction",
+								"Print"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save Transaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Transaction/Save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Transaction",
+								"Save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get A Transaction",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Transaction/Get/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Transaction",
+								"Get",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Display All Transactions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Transaction/GetAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Transaction",
+								"GetAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Payment Transaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Transaction/Payment/We Mobile Recharge/500",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Transaction",
+								"Payment",
+								"We Mobile Recharge",
+								"500"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Wallet Transaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Transaction/Wallet/500",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Transaction",
+								"Wallet",
+								"500"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Refund Transaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Transaction/Refund/2/500",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Transaction",
+								"Refund",
+								"2",
+								"500"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Display Payment Transactions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Transaction/GetPay",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Transaction",
+								"GetPay"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
